@@ -24,131 +24,114 @@
   --sans: 'Syne', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  min-height: 100vh;
-}
+body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; }
 body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
+  content: ''; position: fixed; inset: 0;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.012) 39px, rgba(255,255,255,0.012) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.012) 39px, rgba(255,255,255,0.012) 40px);
-  pointer-events: none;
-  z-index: 0;
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.012) 39px,rgba(255,255,255,.012) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.012) 39px,rgba(255,255,255,.012) 40px);
+  pointer-events: none; z-index: 0;
 }
 .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; position: relative; z-index: 1; }
 
 /* HEADER */
 header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
-.logo-block h1 { font-weight: 800; font-size: 2rem; letter-spacing: -0.03em; line-height: 1; }
+.logo-block h1 { font-weight: 800; font-size: 2rem; letter-spacing: -.03em; line-height: 1; }
 .logo-block h1 span { color: var(--accent); }
-.logo-block p { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); margin-top: 6px; letter-spacing: 0.08em; text-transform: uppercase; }
+.logo-block p { font-family: var(--mono); font-size: .65rem; color: var(--muted); margin-top: 6px; letter-spacing: .08em; text-transform: uppercase; }
 .header-right { text-align: right; }
-.last-update { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); line-height: 1.7; }
-.last-update span { color: var(--text); font-size: 0.78rem; display: block; }
-.refresh-btn { margin-top: 6px; background: none; border: 1px solid var(--border); color: var(--muted); font-family: var(--mono); font-size: 0.6rem; padding: 4px 10px; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+.version-tag { font-family: var(--mono); font-size: .58rem; color: var(--muted); background: var(--surface); border: 1px solid var(--border); padding: 3px 8px; border-radius: 2px; display: inline-block; margin-bottom: 6px; letter-spacing: .06em; }
+.last-update { font-family: var(--mono); font-size: .65rem; color: var(--muted); line-height: 1.7; }
+.last-update span { color: var(--text); font-size: .78rem; display: block; }
+.refresh-btn { margin-top: 6px; background: none; border: 1px solid var(--border); color: var(--muted); font-family: var(--mono); font-size: .6rem; padding: 4px 10px; border-radius: 2px; cursor: pointer; transition: all .2s; }
 .refresh-btn:hover { border-color: var(--accent); color: var(--accent); }
 
 /* SIGNAL BANNER */
-.signal-banner {
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 20px 28px;
-  margin-bottom: 28px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  overflow: hidden;
-}
-.signal-banner::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--signal-color, var(--accent)); }
-.signal-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--signal-color, var(--accent)); box-shadow: 0 0 14px var(--signal-color, var(--accent)); flex-shrink: 0; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.signal-banner { border: 1px solid var(--border); border-radius: 4px; padding: 20px 28px; margin-bottom: 28px; display: flex; align-items: center; gap: 20px; position: relative; overflow: hidden; }
+.signal-banner::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--signal-color,var(--accent)); }
+.signal-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--signal-color,var(--accent)); box-shadow: 0 0 14px var(--signal-color,var(--accent)); flex-shrink: 0; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 .signal-text { flex: 1; }
-.signal-text .label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
-.signal-text .action { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.01em; }
-.signal-text .reason { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); margin-top: 4px; }
+.signal-text .label { font-family: var(--mono); font-size: .62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px; }
+.signal-text .action { font-weight: 800; font-size: 1.2rem; letter-spacing: -.01em; }
+.signal-text .reason { font-family: var(--mono); font-size: .62rem; color: var(--muted); margin-top: 4px; }
 .signal-amount { font-family: var(--mono); text-align: right; }
-.signal-amount .base { font-size: 0.65rem; color: var(--muted); }
-.signal-amount .recommended { font-size: 1.5rem; font-family: var(--sans); font-weight: 800; color: var(--signal-color, var(--accent)); line-height: 1.1; }
-.signal-amount .mult { font-size: 0.65rem; color: var(--muted); }
+.signal-amount .base { font-size: .65rem; color: var(--muted); }
+.signal-amount .recommended { font-size: 1.5rem; font-family: var(--sans); font-weight: 800; line-height: 1.1; }
+.signal-amount .mult { font-size: .65rem; color: var(--muted); }
 
 /* METRICS */
 .metrics-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 28px; }
 @media(max-width:620px){ .metrics-grid { grid-template-columns: 1fr; } }
 .metric-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 20px; }
-.m-label { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-.m-value { font-weight: 800; font-size: 2.1rem; line-height: 1; letter-spacing: -0.03em; margin-bottom: 6px; }
-.m-badge { font-family: var(--mono); font-size: 0.65rem; padding: 3px 8px; border-radius: 2px; display: inline-block; }
+.m-label { font-family: var(--mono); font-size: .6rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+.m-value { font-weight: 800; font-size: 2.1rem; line-height: 1; letter-spacing: -.03em; margin-bottom: 6px; }
+.m-badge { font-family: var(--mono); font-size: .65rem; padding: 3px 8px; border-radius: 2px; display: inline-block; }
 .gauge-wrap { margin-top: 10px; height: 3px; background: var(--border); border-radius: 2px; }
 .gauge-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
-.m-signal { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); margin-top: 7px; }
-
-/* MVRV manual override */
+.m-signal { font-family: var(--mono); font-size: .6rem; color: var(--muted); margin-top: 7px; }
 .mvrv-override { margin-top: 10px; display: flex; gap: 6px; align-items: center; }
-.mvrv-override input { background: var(--bg); border: 1px solid var(--border); border-radius: 2px; color: var(--text); padding: 4px 8px; font-family: var(--mono); font-size: 0.72rem; width: 80px; outline: none; }
+.mvrv-override input { background: var(--bg); border: 1px solid var(--border); border-radius: 2px; color: var(--text); padding: 4px 8px; font-family: var(--mono); font-size: .72rem; width: 80px; outline: none; }
 .mvrv-override input:focus { border-color: var(--purple); }
-.mvrv-override button { background: none; border: 1px solid var(--border); color: var(--muted); font-family: var(--mono); font-size: 0.6rem; padding: 4px 8px; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+.mvrv-override button { background: none; border: 1px solid var(--border); color: var(--muted); font-family: var(--mono); font-size: .6rem; padding: 4px 8px; border-radius: 2px; cursor: pointer; transition: all .2s; white-space: nowrap; }
 .mvrv-override button:hover { border-color: var(--purple); color: var(--purple); }
-.mvrv-source { font-family: var(--mono); font-size: 0.55rem; color: var(--muted); margin-top: 4px; }
+.mvrv-source { font-family: var(--mono); font-size: .55rem; color: var(--muted); margin-top: 4px; line-height: 1.5; }
 .mvrv-source a { color: var(--accent2); text-decoration: none; }
 
 /* CHART */
 .chart-section { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px; margin-bottom: 28px; }
 .chart-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
-.chart-title { font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-.chart-legend { display: flex; gap: 16px; flex-wrap: wrap; }
-.legend-item { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 0.6rem; color: var(--muted); }
+.chart-title { font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.chart-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 6px; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: .6rem; color: var(--muted); }
 .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
-.period-tabs { display: flex; gap: 4px; }
-.period-tab { font-family: var(--mono); font-size: 0.58rem; padding: 3px 9px; background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; border-radius: 2px; transition: all 0.2s; letter-spacing: 0.04em; }
+.period-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+.period-tab { font-family: var(--mono); font-size: .58rem; padding: 3px 9px; background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; border-radius: 2px; transition: all .2s; }
 .period-tab.active, .period-tab:hover { border-color: var(--accent); color: var(--accent); }
-.chart-container { position: relative; height: 320px; }
-.chart-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); animation: blink 1.2s infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+.chart-container { position: relative; height: 300px; }
+.chart-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: .72rem; color: var(--muted); animation: blink 1.2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
 .zone-lines-info { margin-top: 12px; display: flex; gap: 16px; flex-wrap: wrap; }
-.zone-line { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); display: flex; align-items: center; gap: 5px; }
-.zone-line-dot { width: 20px; height: 1px; }
+.zone-line { font-family: var(--mono); font-size: .58rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.zone-dash { width: 18px; border-top: 2px dashed; }
 
-/* THRESHOLDS */
-.thresholds { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px; margin-bottom: 28px; }
-.thresholds h3 { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
-.threshold-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
-.threshold-item { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border: 1px solid var(--border); border-radius: 3px; }
-.threshold-item.active-rule { border-color: var(--signal-color, var(--border)); background: rgba(255,255,255,0.02); }
-.t-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-.t-condition { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); flex: 1; line-height: 1.5; }
-.t-condition strong { color: var(--text); }
-.t-action { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
+/* DCA RULES — vertical bars */
+.dca-rules { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px; margin-bottom: 28px; }
+.dca-rules h3 { font-family: var(--mono); font-size: .62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 20px; }
+.rules-bars { display: grid; grid-template-columns: repeat(6,1fr); gap: 10px; align-items: end; }
+@media(max-width:640px){ .rules-bars { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:380px){ .rules-bars { grid-template-columns: repeat(2,1fr); } }
+.rule-bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.rule-bar-outer { width: 100%; background: rgba(255,255,255,.04); border-radius: 3px 3px 0 0; height: 140px; display: flex; align-items: flex-end; overflow: hidden; position: relative; border: 1px solid var(--border); border-bottom: none; }
+.rule-bar-fill { width: 100%; border-radius: 2px 2px 0 0; position: relative; transition: height .8s ease, opacity .3s; }
+.rule-bar-amount { position: absolute; top: 10px; left: 0; right: 0; text-align: center; font-family: var(--sans); font-weight: 800; font-size: 1rem; letter-spacing: -.02em; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.5); }
+.rule-bar-bottom-amount { font-family: var(--sans); font-weight: 800; font-size: .85rem; text-align: center; margin-top: -2px; }
+.rule-bar-label { font-family: var(--mono); font-size: .55rem; color: var(--muted); text-align: center; line-height: 1.5; }
+.rule-bar-condition { font-family: var(--mono); font-size: .52rem; text-align: center; padding: 3px 5px; border-radius: 2px; line-height: 1.5; }
+.rule-active-dot { width: 6px; height: 6px; border-radius: 50%; background: transparent; transition: background .3s, box-shadow .3s; }
 
 /* EMAIL */
 .email-section { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 24px; }
-.email-section h3 { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+.email-section h3 { font-family: var(--mono); font-size: .62rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; }
 .email-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.email-input { flex: 1; min-width: 200px; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; color: var(--text); padding: 10px 14px; font-family: var(--mono); font-size: 0.72rem; outline: none; transition: border-color 0.2s; }
+.email-input { flex: 1; min-width: 200px; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; color: var(--text); padding: 10px 14px; font-family: var(--mono); font-size: .72rem; outline: none; transition: border-color .2s; }
 .email-input:focus { border-color: var(--accent); }
-.btn { background: var(--accent); color: #000; border: none; border-radius: 3px; padding: 10px 18px; font-family: var(--sans); font-weight: 700; font-size: 0.75rem; cursor: pointer; transition: opacity 0.2s; letter-spacing: 0.02em; }
-.btn:hover { opacity: 0.85; }
+.btn { background: var(--accent); color: #000; border: none; border-radius: 3px; padding: 10px 18px; font-family: var(--sans); font-weight: 700; font-size: .75rem; cursor: pointer; transition: opacity .2s; }
+.btn:hover { opacity: .85; }
 .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
 .subscribers-list { margin-top: 10px; }
-.subscriber-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
-.remove-btn { background: none; border: none; color: var(--red); cursor: pointer; font-size: 0.75rem; padding: 0 4px; }
-.config-toggle { font-family: var(--mono); font-size: 0.6rem; color: var(--accent2); background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; margin-top: 10px; display: block; }
+.subscriber-item { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: .65rem; color: var(--muted); }
+.remove-btn { background: none; border: none; color: var(--red); cursor: pointer; font-size: .75rem; padding: 0 4px; }
+.config-toggle { font-family: var(--mono); font-size: .6rem; color: var(--accent2); background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; margin-top: 10px; display: block; }
 .config-panel { display: none; margin-top: 10px; padding: 14px; border: 1px solid var(--border); border-radius: 3px; background: var(--bg); }
 .config-panel.open { display: block; }
-.config-label { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); margin-bottom: 4px; display: block; text-transform: uppercase; letter-spacing: 0.08em; }
-.config-input { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; color: var(--text); padding: 8px 12px; font-family: var(--mono); font-size: 0.7rem; outline: none; margin-bottom: 8px; }
+.config-label { font-family: var(--mono); font-size: .58rem; color: var(--muted); margin-bottom: 4px; display: block; text-transform: uppercase; letter-spacing: .08em; }
+.config-input { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; color: var(--text); padding: 8px 12px; font-family: var(--mono); font-size: .7rem; outline: none; margin-bottom: 8px; }
 .config-input:focus { border-color: var(--accent2); }
-.email-note { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); margin-top: 10px; line-height: 1.7; }
+.email-note { font-family: var(--mono); font-size: .58rem; color: var(--muted); margin-top: 10px; line-height: 1.7; }
 .email-note a { color: var(--accent2); text-decoration: none; }
-.schedule-box { margin-top: 10px; padding: 10px 14px; background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.15); border-radius: 3px; font-family: var(--mono); font-size: 0.6rem; color: var(--muted); line-height: 1.6; }
-
-/* TOAST */
-.toast { position: fixed; bottom: 24px; right: 24px; background: var(--surface); border: 1px solid var(--accent); border-radius: 4px; padding: 12px 20px; font-family: var(--mono); font-size: 0.7rem; color: var(--text); transform: translateY(80px); opacity: 0; transition: all 0.3s ease; z-index: 100; max-width: 300px; }
+.schedule-box { margin-top: 10px; padding: 10px 14px; background: rgba(59,130,246,.06); border: 1px solid rgba(59,130,246,.15); border-radius: 3px; font-family: var(--mono); font-size: .6rem; color: var(--muted); line-height: 1.6; }
+.toast { position: fixed; bottom: 24px; right: 24px; background: var(--surface); border: 1px solid var(--accent); border-radius: 4px; padding: 12px 20px; font-family: var(--mono); font-size: .7rem; color: var(--text); transform: translateY(80px); opacity: 0; transition: all .3s ease; z-index: 100; max-width: 300px; }
 .toast.show { transform: translateY(0); opacity: 1; }
 </style>
 </head>
@@ -158,18 +141,19 @@ header { display: flex; align-items: flex-start; justify-content: space-between;
   <header>
     <div class="logo-block">
       <h1>BTC <span>DCA</span> Signal</h1>
-      <p>Fear &amp; Greed · MVRV Z-Score · Méthode Chamosset</p>
+      <p>Fear &amp; Greed · MVRV Z-Score</p>
     </div>
     <div class="header-right">
+      <div class="version-tag">v3.0</div>
       <div class="last-update">
         <span id="btc-price-header">—</span>
-        Mise à jour : <span id="update-time" style="display:inline">—</span>
+        Mis à jour : <span id="update-time" style="display:inline">—</span>
       </div>
       <button class="refresh-btn" onclick="reload()">↻ Actualiser</button>
     </div>
   </header>
 
-  <!-- SIGNAL -->
+  <!-- SIGNAL BANNER -->
   <div class="signal-banner" id="signal-banner">
     <div class="signal-dot" id="signal-dot"></div>
     <div class="signal-text">
@@ -186,8 +170,6 @@ header { display: flex; align-items: flex-start; justify-content: space-between;
 
   <!-- METRICS -->
   <div class="metrics-grid">
-
-    <!-- Fear & Greed -->
     <div class="metric-card">
       <div class="m-label">Fear &amp; Greed Index</div>
       <div class="m-value" id="fg-value">—</div>
@@ -195,10 +177,8 @@ header { display: flex; align-items: flex-start; justify-content: space-between;
       <div class="gauge-wrap"><div class="gauge-fill" id="fg-gauge" style="width:0%"></div></div>
       <div class="m-signal" id="fg-signal">—</div>
     </div>
-
-    <!-- MVRV -->
     <div class="metric-card">
-      <div class="m-label">MVRV Z-Score <span style="opacity:0.5; font-size:0.55rem">(ratio)</span></div>
+      <div class="m-label">MVRV Z-Score <span style="opacity:.5;font-size:.55rem">(ratio)</span></div>
       <div class="m-value" id="mvrv-value">—</div>
       <span class="m-badge" id="mvrv-badge">—</span>
       <div class="gauge-wrap"><div class="gauge-fill" id="mvrv-gauge" style="width:0%"></div></div>
@@ -207,87 +187,117 @@ header { display: flex; align-items: flex-start; justify-content: space-between;
         <input type="number" id="mvrv-manual" placeholder="ex: 2.4" step="0.01">
         <button onclick="applyManualMVRV()">Appliquer</button>
       </div>
-      <div class="mvrv-source">
-        Valeur manuelle depuis <a href="https://studio.glassnode.com/metrics?a=BTC&m=market.MvrvZScore" target="_blank">Glassnode ↗</a>
-        · <span id="mvrv-src-label">Source : CoinMetrics</span>
-      </div>
+      <div class="mvrv-source">Valeur depuis <a href="https://studio.glassnode.com/metrics?a=BTC&m=market.MvrvZScore" target="_blank">Glassnode ↗</a> · <span id="mvrv-src-label">Source : CoinMetrics</span></div>
     </div>
-
-    <!-- BTC -->
     <div class="metric-card">
       <div class="m-label">Bitcoin / USD</div>
-      <div class="m-value" id="btc-card-price" style="color: var(--accent); font-size: 1.45rem">—</div>
+      <div class="m-value" id="btc-card-price" style="color:var(--accent);font-size:1.45rem">—</div>
       <span class="m-badge" id="btc-change-badge">—</span>
-      <div class="gauge-wrap"><div class="gauge-fill" id="btc-gauge" style="width:50%; background: var(--accent)"></div></div>
-      <div class="m-signal" id="btc-dominance">—</div>
+      <div class="gauge-wrap"><div class="gauge-fill" id="btc-gauge" style="width:50%;background:var(--accent)"></div></div>
+      <div class="m-signal">Source : CoinGecko</div>
     </div>
-
   </div>
 
   <!-- CHART -->
   <div class="chart-section">
     <div class="chart-header">
       <div>
-        <div class="chart-title">Historique Bitcoin</div>
-        <div class="chart-legend" style="margin-top:8px">
-          <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>Prix BTC (axe gauche)</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div>Fear &amp; Greed (axe droit)</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>MVRV Ratio (axe droit)</div>
+        <div class="chart-title">Prix BTC &amp; Fear &amp; Greed Index</div>
+        <div class="chart-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>Prix BTC (axe gauche, log)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div>Fear &amp; Greed (axe droit 0–100)</div>
         </div>
       </div>
       <div class="period-tabs">
-        <button class="period-tab" onclick="setPeriod(365*3, this)">3A</button>
-        <button class="period-tab active" onclick="setPeriod(365, this)">1A</button>
-        <button class="period-tab" onclick="setPeriod(180, this)">6M</button>
-        <button class="period-tab" onclick="setPeriod(90, this)">3M</button>
-        <button class="period-tab" onclick="setPeriod(30, this)">1M</button>
+        <button class="period-tab" onclick="setPeriod('max',this)">MAX</button>
+        <button class="period-tab" onclick="setPeriod(1095,this)">3A</button>
+        <button class="period-tab active" onclick="setPeriod(365,this)">1A</button>
+        <button class="period-tab" onclick="setPeriod(180,this)">6M</button>
+        <button class="period-tab" onclick="setPeriod(90,this)">3M</button>
+        <button class="period-tab" onclick="setPeriod(30,this)">1M</button>
       </div>
     </div>
     <div class="chart-container">
-      <div class="chart-loading" id="chart-loading">Chargement des données historiques...</div>
+      <div class="chart-loading" id="chart-loading">Chargement...</div>
       <canvas id="mainChart" style="display:none"></canvas>
     </div>
     <div class="zone-lines-info">
-      <div class="zone-line"><div class="zone-line-dot" style="background:var(--green); border-top: 2px dashed var(--green)"></div>F&amp;G = 25 (seuil achat)</div>
-      <div class="zone-line"><div class="zone-line-dot" style="background:var(--red); border-top: 2px dashed var(--red)"></div>F&amp;G = 75 (seuil vente)</div>
-      <div class="zone-line"><div class="zone-line-dot" style="background:var(--purple); border-top: 2px dashed var(--purple)"></div>MVRV = 0 (seuil achat)</div>
+      <div class="zone-line"><div class="zone-dash" style="border-color:var(--green)"></div>F&amp;G = 25 — seuil ×2</div>
+      <div class="zone-line"><div class="zone-dash" style="border-color:var(--red)"></div>F&amp;G = 75 — seuil ÷2</div>
     </div>
   </div>
 
-  <!-- THRESHOLDS -->
-  <div class="thresholds">
-    <h3>Règles DCA — Méthode Chamosset (base 100€/mois)</h3>
-    <div class="threshold-grid" id="threshold-grid">
-      <div class="threshold-item" id="rule-fg-fear">
-        <div class="t-dot" style="background:var(--green)"></div>
-        <div class="t-condition"><strong>Fear &amp; Greed &lt; 25</strong><br>Extreme Fear</div>
-        <div class="t-action" style="color:var(--green)">× 2 → 200€</div>
+  <!-- DCA RULES BARS -->
+  <div class="dca-rules">
+    <h3>Règles DCA (base 100€/mois)</h3>
+    <div class="rules-bars">
+
+      <div class="rule-bar-wrap" id="bar-both">
+        <div class="rule-bar-outer">
+          <div class="rule-bar-fill" style="height:100%;background:linear-gradient(180deg,#6d28d9,#a78bfa)">
+            <div class="rule-bar-amount">300€</div>
+          </div>
+        </div>
+        <div class="rule-bar-condition" style="background:rgba(167,139,250,.12);color:#a78bfa">F&amp;G &lt; 25<br>+ MVRV &lt; 0</div>
+        <div class="rule-bar-label">Conditions<br>idéales</div>
+        <div class="rule-active-dot" id="ind-both"></div>
       </div>
-      <div class="threshold-item" id="rule-mvrv-low">
-        <div class="t-dot" style="background:var(--green)"></div>
-        <div class="t-condition"><strong>MVRV Z-Score &lt; 0</strong><br>BTC sous-évalué</div>
-        <div class="t-action" style="color:var(--green)">× 2 → 200€</div>
+
+      <div class="rule-bar-wrap" id="bar-fg-fear">
+        <div class="rule-bar-outer">
+          <div class="rule-bar-fill" style="height:66.7%;background:linear-gradient(180deg,#166534,#22c55e)">
+            <div class="rule-bar-amount">200€</div>
+          </div>
+        </div>
+        <div class="rule-bar-condition" style="background:rgba(34,197,94,.12);color:#22c55e">F&amp;G &lt; 25</div>
+        <div class="rule-bar-label">Extreme<br>Fear</div>
+        <div class="rule-active-dot" id="ind-fg-fear"></div>
       </div>
-      <div class="threshold-item" id="rule-both">
-        <div class="t-dot" style="background:var(--purple)"></div>
-        <div class="t-condition"><strong>F&amp;G &lt; 25 + MVRV &lt; 0</strong><br>Conditions idéales</div>
-        <div class="t-action" style="color:var(--purple)">× 3 → 300€</div>
+
+      <div class="rule-bar-wrap" id="bar-mvrv-low">
+        <div class="rule-bar-outer">
+          <div class="rule-bar-fill" style="height:66.7%;background:linear-gradient(180deg,#0e7490,#22d3ee)">
+            <div class="rule-bar-amount">200€</div>
+          </div>
+        </div>
+        <div class="rule-bar-condition" style="background:rgba(34,211,238,.12);color:#22d3ee">MVRV &lt; 0</div>
+        <div class="rule-bar-label">BTC<br>sous-évalué</div>
+        <div class="rule-active-dot" id="ind-mvrv-low"></div>
       </div>
-      <div class="threshold-item" id="rule-normal">
-        <div class="t-dot" style="background:var(--text)"></div>
-        <div class="t-condition"><strong>Marché normal</strong><br>Conditions neutres</div>
-        <div class="t-action" style="color:var(--text)">× 1 → 100€</div>
+
+      <div class="rule-bar-wrap" id="bar-normal">
+        <div class="rule-bar-outer">
+          <div class="rule-bar-fill" style="height:33.3%;background:linear-gradient(180deg,#92400e,#f7931a)">
+            <span class="rule-bar-bottom-amount" style="color:#f7931a;position:absolute;bottom:-22px;left:0;right:0">100€</span>
+          </div>
+        </div>
+        <div class="rule-bar-condition" style="background:rgba(247,147,26,.12);color:#f7931a">Neutre</div>
+        <div class="rule-bar-label">Conditions<br>normales</div>
+        <div class="rule-active-dot" id="ind-normal"></div>
       </div>
-      <div class="threshold-item" id="rule-greed">
-        <div class="t-dot" style="background:var(--red)"></div>
-        <div class="t-condition"><strong>Fear &amp; Greed &gt; 75</strong><br>Greed / Euphorie</div>
-        <div class="t-action" style="color:var(--red)">÷ 2 → 50€</div>
+
+      <div class="rule-bar-wrap" id="bar-greed">
+        <div class="rule-bar-outer">
+          <div class="rule-bar-fill" style="height:16.7%;background:linear-gradient(180deg,#854d0e,#eab308)">
+            <span class="rule-bar-bottom-amount" style="color:#eab308;position:absolute;bottom:-22px;left:0;right:0">50€</span>
+          </div>
+        </div>
+        <div class="rule-bar-condition" style="background:rgba(234,179,8,.12);color:#eab308">F&amp;G &gt; 75</div>
+        <div class="rule-bar-label">Greed /<br>Euphorie</div>
+        <div class="rule-active-dot" id="ind-greed"></div>
       </div>
-      <div class="threshold-item" id="rule-mvrv-high">
-        <div class="t-dot" style="background:var(--red)"></div>
-        <div class="t-condition"><strong>MVRV Z-Score &gt; 7</strong><br>Zone distribution</div>
-        <div class="t-action" style="color:var(--red)">Réduire fortement</div>
+
+      <div class="rule-bar-wrap" id="bar-mvrv-high">
+        <div class="rule-bar-outer">
+          <div class="rule-bar-fill" style="height:5%;background:linear-gradient(180deg,#7f1d1d,#ef4444)">
+          </div>
+        </div>
+        <div style="font-family:var(--mono);font-size:.85rem;color:#ef4444;margin-top:2px">↓</div>
+        <div class="rule-bar-condition" style="background:rgba(239,68,68,.12);color:#ef4444">MVRV &gt; 7</div>
+        <div class="rule-bar-label">Zone<br>distribution</div>
+        <div class="rule-active-dot" id="ind-mvrv-high"></div>
       </div>
+
     </div>
   </div>
 
@@ -300,7 +310,6 @@ header { display: flex; align-items: flex-start; justify-content: space-between;
       <button class="btn btn-outline" onclick="sendNow()">Envoyer maintenant</button>
     </div>
     <div class="subscribers-list" id="subscribers-list"></div>
-
     <button class="config-toggle" onclick="toggleConfig()">⚙ Configurer EmailJS</button>
     <div class="config-panel" id="config-panel">
       <label class="config-label">Service ID</label>
@@ -309,66 +318,61 @@ header { display: flex; align-items: flex-start; justify-content: space-between;
       <input class="config-input" type="text" id="ejs-template" placeholder="template_xxxxxxx">
       <label class="config-label">Public Key</label>
       <input class="config-input" type="text" id="ejs-pubkey" placeholder="votre_public_key">
-      <button class="btn" style="width:100%" onclick="saveConfig()">Sauvegarder</button>
+      <button class="btn" style="width:100%;margin-top:4px" onclick="saveConfig()">Sauvegarder</button>
     </div>
-
     <p class="email-note">
-      Utilise <a href="https://www.emailjs.com" target="_blank">EmailJS.com</a> (gratuit, 200 emails/mois, sans backend).
-      Dans ton template EmailJS, utilise les variables : <code style="color:var(--accent2)">{{subject}}</code>, <code style="color:var(--accent2)">{{message}}</code>, <code style="color:var(--accent2)">{{to_email}}</code>.
+      Utilise <a href="https://www.emailjs.com" target="_blank">EmailJS.com</a> (gratuit, 200 emails/mois, sans backend).<br>
+      Variables template : <code style="color:var(--accent2)">{{to_email}}</code> <code style="color:var(--accent2)">{{subject}}</code> <code style="color:var(--accent2)">{{message}}</code>
     </p>
-    <div class="schedule-box">⏰ Envoi automatique chaque jour à 8h (page doit être ouverte) · Prochain envoi : <strong id="next-send">—</strong></div>
+    <div class="schedule-box">⏰ Envoi automatique chaque jour à 8h (page doit rester ouverte) · Prochain : <strong id="next-send">—</strong></div>
   </div>
 
 </div>
-
 <div class="toast" id="toast"></div>
-
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-// ─────────────────────────────────────────────
-// STATE
-// ─────────────────────────────────────────────
+const VERSION = 'v3.0';
 let state = {
   fg: null, fgHistory: [],
-  mvrv: null, mvrvHistory: [], mvrvSource: 'auto',
+  mvrv: null, mvrvSource: 'auto',
   btcPrice: null, btcChange: null, btcHistory: [],
   currentPeriod: 365,
   chartInstance: null,
 };
 let emailConfig = JSON.parse(localStorage.getItem('dca_emailjs') || '{}');
-let subscribers = JSON.parse(localStorage.getItem('dca_subscribers') || '[]');
+let subscribers  = JSON.parse(localStorage.getItem('dca_subscribers') || '[]');
 
-// ─────────────────────────────────────────────
-// FETCH
-// ─────────────────────────────────────────────
+// ── FETCH ──────────────────────────────────────────────
 async function fetchFearGreed() {
   try {
-    const res = await fetch('https://api.alternative.me/fng/?limit=365&format=json');
+    const res  = await fetch('https://api.alternative.me/fng/?limit=365&format=json');
     const json = await res.json();
     state.fg = parseInt(json.data[0].value);
-    state.fgHistory = json.data.reverse().map(d => ({
-      t: new Date(d.timestamp * 1000),
+    state.fgHistory = json.data.slice().reverse().map(d => ({
+      t: new Date(parseInt(d.timestamp) * 1000),
       v: parseInt(d.value)
     }));
-  } catch(e) { console.warn('FG error', e); }
+  } catch(e) { console.warn('FG', e); }
 }
 
-async function fetchBTC() {
+async function fetchBTC(period) {
+  const param = period === 'max' ? 'max' : period;
   try {
-    const days = Math.max(state.currentPeriod, 365);
-    const res = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${days}&interval=daily`);
+    const res  = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${param}&interval=daily`);
     const json = await res.json();
     state.btcHistory = json.prices.map(p => ({ t: new Date(p[0]), v: p[1] }));
-    const last = state.btcHistory.length;
-    state.btcPrice = state.btcHistory[last - 1].v;
-    state.btcChange = ((state.btcHistory[last-1].v - state.btcHistory[last-2].v) / state.btcHistory[last-2].v * 100).toFixed(2);
+    const n = state.btcHistory.length;
+    if (n >= 2) {
+      state.btcPrice  = state.btcHistory[n-1].v;
+      state.btcChange = ((state.btcHistory[n-1].v - state.btcHistory[n-2].v) / state.btcHistory[n-2].v * 100).toFixed(2);
+    }
   } catch(e) {
-    console.warn('BTC price error', e);
+    console.warn('BTC', e);
     try {
       const r2 = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
       const j2 = await r2.json();
-      state.btcPrice = j2.bitcoin.usd;
-      state.btcChange = j2.bitcoin.usd_24h_change?.toFixed(2) || null;
+      state.btcPrice  = j2.bitcoin.usd;
+      state.btcChange = j2.bitcoin.usd_24h_change?.toFixed(2) ?? null;
     } catch(e2) {}
   }
 }
@@ -377,19 +381,16 @@ async function fetchMVRV() {
   if (state.mvrvSource === 'manual') return;
   try {
     const today = new Date();
-    const start = new Date(today); start.setFullYear(start.getFullYear() - 1);
-    const s = start.toISOString().split('T')[0];
-    const e = today.toISOString().split('T')[0];
-    const url = `https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=CapMVRVFF&start_time=${s}&end_time=${e}`;
-    const res = await fetch(url);
+    const start = new Date(today); start.setFullYear(start.getFullYear()-1);
+    const url = `https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=CapMVRVFF&start_time=${start.toISOString().split('T')[0]}&end_time=${today.toISOString().split('T')[0]}`;
+    const res  = await fetch(url);
     const json = await res.json();
-    if (json.data && json.data.length) {
+    if (json.data?.length) {
       const sorted = json.data.sort((a,b) => new Date(a.time)-new Date(b.time));
-      state.mvrvHistory = sorted.map(d => ({ t: new Date(d.time), v: parseFloat(d.CapMVRVFF) }));
       state.mvrv = parseFloat(sorted[sorted.length-1].CapMVRVFF);
       document.getElementById('mvrv-src-label').textContent = 'Source : CoinMetrics (auto)';
     }
-  } catch(e) { console.warn('MVRV error', e); }
+  } catch(e) { console.warn('MVRV', e); }
 }
 
 function applyManualMVRV() {
@@ -400,406 +401,289 @@ function applyManualMVRV() {
   document.getElementById('mvrv-src-label').textContent = 'Source : saisie manuelle';
   document.getElementById('mvrv-manual').value = '';
   updateUI();
-  showToast('✓ MVRV mis à jour : ' + val.toFixed(2));
+  showToast('✓ MVRV : ' + val.toFixed(2));
 }
 
-// ─────────────────────────────────────────────
-// SIGNAL LOGIC
-// ─────────────────────────────────────────────
+// ── SIGNAL ────────────────────────────────────────────
 function computeSignal() {
   const fg = state.fg, mv = state.mvrv;
-  const efear = fg !== null && fg < 25;
-  const mvlow = mv !== null && mv < 0;
-  const greed = fg !== null && fg > 75;
+  const efear  = fg !== null && fg < 25;
+  const mvlow  = mv !== null && mv < 0;
+  const greed  = fg !== null && fg > 75;
   const mvhigh = mv !== null && mv > 7;
-  if (efear && mvlow) return { action:'Acheter 3× — Conditions parfaites', amount:300, mult:'× 3', color:'#a78bfa', reason:'F&G < 25 ET MVRV < 0', rule:'rule-both' };
-  if (efear)          return { action:'Acheter 2× — Extreme Fear', amount:200, mult:'× 2', color:'#22c55e', reason:'Fear & Greed < 25', rule:'rule-fg-fear' };
-  if (mvlow)          return { action:'Acheter 2× — BTC sous-évalué', amount:200, mult:'× 2', color:'#22c55e', reason:'MVRV < 0', rule:'rule-mvrv-low' };
-  if (greed)          return { action:'Réduire — Euphorie du marché', amount:50, mult:'÷ 2', color:'#ef4444', reason:'Fear & Greed > 75', rule:'rule-greed' };
-  if (mvhigh)         return { action:'Réduire fortement — Distribution', amount:50, mult:'↓', color:'#ef4444', reason:'MVRV > 7', rule:'rule-mvrv-high' };
-  return               { action:'DCA standard — Marché neutre', amount:100, mult:'× 1', color:'#f7931a', reason:'Conditions normales', rule:'rule-normal' };
+  if (efear && mvlow) return { action:'Acheter 3× — Conditions parfaites', amount:300, mult:'× 3', color:'#a78bfa', reason:'F&G < 25 ET MVRV < 0',  rule:'both'      };
+  if (efear)          return { action:'Acheter 2× — Extreme Fear',          amount:200, mult:'× 2', color:'#22c55e', reason:'Fear & Greed < 25',    rule:'fg-fear'   };
+  if (mvlow)          return { action:'Acheter 2× — BTC sous-évalué',       amount:200, mult:'× 2', color:'#22d3ee', reason:'MVRV < 0',              rule:'mvrv-low'  };
+  if (greed)          return { action:'Réduire — Euphorie du marché',        amount:50,  mult:'÷ 2', color:'#eab308', reason:'Fear & Greed > 75',    rule:'greed'     };
+  if (mvhigh)         return { action:'Réduire fortement — Distribution',    amount:50,  mult:'↓',   color:'#ef4444', reason:'MVRV > 7',              rule:'mvrv-high' };
+  return                     { action:'DCA standard — Marché neutre',        amount:100, mult:'× 1', color:'#f7931a', reason:'Conditions normales',   rule:'normal'    };
 }
 
-// ─────────────────────────────────────────────
-// UI
-// ─────────────────────────────────────────────
+// ── COLORS ────────────────────────────────────────────
 const fmtUSD = v => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(v);
 
-function fgColor(v){ if(v<25) return '#22c55e'; if(v<50) return '#86efac'; if(v<75) return '#eab308'; return '#ef4444'; }
-function fgLabel(v){ if(v<25) return 'Extreme Fear'; if(v<50) return 'Fear'; if(v<75) return 'Greed'; return 'Extreme Greed'; }
+// FG: bas = rouge (extreme fear), haut = vert (extreme greed) — échelle de sentiment du marché
+function fgColor(v)  { if(v<25) return '#ef4444'; if(v<50) return '#f97316'; if(v<75) return '#eab308'; return '#22c55e'; }
+function fgLabel(v)  { if(v<25) return 'Extreme Fear'; if(v<50) return 'Fear'; if(v<75) return 'Greed'; return 'Extreme Greed'; }
 function mvrvColor(v){ if(v<0) return '#22c55e'; if(v<3) return '#86efac'; if(v<7) return '#eab308'; return '#ef4444'; }
 function mvrvLabel(v){ if(v<0) return 'Sous-évalué'; if(v<3) return 'Neutre'; if(v<7) return 'Surévalué'; return 'Distribution'; }
 
+// ── UI ────────────────────────────────────────────────
 function updateUI() {
   document.getElementById('update-time').textContent = new Date().toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
 
-  // BTC
   if (state.btcPrice) {
-    document.getElementById('btc-price-header').textContent = fmtUSD(state.btcPrice);
-    document.getElementById('btc-card-price').textContent = fmtUSD(state.btcPrice);
+    const p = fmtUSD(state.btcPrice);
+    document.getElementById('btc-price-header').textContent = p;
+    document.getElementById('btc-card-price').textContent   = p;
     if (state.btcChange !== null) {
       const ch = parseFloat(state.btcChange), el = document.getElementById('btc-change-badge');
       el.textContent = (ch>=0?'+':'')+ch+'% (24h)';
-      el.style.background = ch>=0 ? 'rgba(34,197,94,0.15)' : 'rgba(239,68,68,0.15)';
-      el.style.color = ch>=0 ? '#22c55e' : '#ef4444';
+      el.style.background = ch>=0 ? 'rgba(34,197,94,.15)' : 'rgba(239,68,68,.15)';
+      el.style.color      = ch>=0 ? '#22c55e' : '#ef4444';
     }
-    document.getElementById('btc-dominance').textContent = '→ Données en temps réel (CoinGecko)';
   }
 
-  // FG
   if (state.fg !== null) {
     const c = fgColor(state.fg);
-    document.getElementById('fg-value').textContent = state.fg;
-    document.getElementById('fg-value').style.color = c;
-    document.getElementById('fg-badge').textContent = fgLabel(state.fg);
+    document.getElementById('fg-value').textContent      = state.fg;
+    document.getElementById('fg-value').style.color      = c;
+    document.getElementById('fg-badge').textContent      = fgLabel(state.fg);
     document.getElementById('fg-badge').style.background = c+'22';
-    document.getElementById('fg-badge').style.color = c;
-    document.getElementById('fg-gauge').style.width = state.fg+'%';
+    document.getElementById('fg-badge').style.color      = c;
+    document.getElementById('fg-gauge').style.width      = state.fg+'%';
     document.getElementById('fg-gauge').style.background = c;
-    document.getElementById('fg-signal').textContent = state.fg < 25 ? '→ Signal: Doubler la mise' : state.fg > 75 ? '→ Signal: Diviser par 2' : '→ Signal: DCA normal';
+    document.getElementById('fg-signal').textContent     = state.fg<25 ? '→ Signal: Doubler la mise' : state.fg>75 ? '→ Signal: Diviser par 2' : '→ Signal: DCA normal';
   }
 
-  // MVRV
   if (state.mvrv !== null) {
     const c = mvrvColor(state.mvrv);
-    document.getElementById('mvrv-value').textContent = state.mvrv.toFixed(2);
-    document.getElementById('mvrv-value').style.color = c;
-    document.getElementById('mvrv-badge').textContent = mvrvLabel(state.mvrv);
+    document.getElementById('mvrv-value').textContent      = state.mvrv.toFixed(2);
+    document.getElementById('mvrv-value').style.color      = c;
+    document.getElementById('mvrv-badge').textContent      = mvrvLabel(state.mvrv);
     document.getElementById('mvrv-badge').style.background = c+'22';
-    document.getElementById('mvrv-badge').style.color = c;
+    document.getElementById('mvrv-badge').style.color      = c;
     const gw = Math.max(0,Math.min(100,((state.mvrv+2)/12)*100));
-    document.getElementById('mvrv-gauge').style.width = gw+'%';
+    document.getElementById('mvrv-gauge').style.width      = gw+'%';
     document.getElementById('mvrv-gauge').style.background = c;
-    document.getElementById('mvrv-signal').textContent = state.mvrv < 0 ? '→ Signal: Augmenter DCA' : state.mvrv > 7 ? '→ Signal: Réduire fortement' : '→ Signal: Neutre';
+    document.getElementById('mvrv-signal').textContent     = state.mvrv<0 ? '→ Signal: Augmenter DCA' : state.mvrv>7 ? '→ Signal: Réduire fortement' : '→ Signal: Neutre';
   } else {
-    document.getElementById('mvrv-value').textContent = 'N/A';
-    document.getElementById('mvrv-badge').textContent = 'Saisie manuelle ci-dessous';
-    document.getElementById('mvrv-signal').textContent = '→ Consulter glassnode.com';
+    document.getElementById('mvrv-value').textContent  = 'N/A';
+    document.getElementById('mvrv-badge').textContent  = 'Saisir manuellement ↓';
+    document.getElementById('mvrv-signal').textContent = '→ Voir glassnode.com';
   }
 
-  // Signal
   const sig = computeSignal();
-  document.getElementById('signal-action').textContent = sig.action;
-  document.getElementById('signal-reason').textContent = sig.reason;
-  document.getElementById('signal-amount').textContent = sig.amount+'€';
-  document.getElementById('signal-mult').textContent = sig.mult;
+  document.getElementById('signal-action').textContent  = sig.action;
+  document.getElementById('signal-reason').textContent  = sig.reason;
+  document.getElementById('signal-amount').textContent  = sig.amount+'€';
+  document.getElementById('signal-amount').style.color  = sig.color;
+  document.getElementById('signal-mult').textContent    = sig.mult;
   document.getElementById('signal-banner').style.setProperty('--signal-color', sig.color);
   document.getElementById('signal-dot').style.background = sig.color;
-  document.getElementById('signal-dot').style.boxShadow = `0 0 14px ${sig.color}`;
-  document.getElementById('signal-amount').style.color = sig.color;
+  document.getElementById('signal-dot').style.boxShadow  = `0 0 14px ${sig.color}`;
 
-  // Highlight active rule
-  ['rule-fg-fear','rule-mvrv-low','rule-both','rule-normal','rule-greed','rule-mvrv-high'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) { el.style.borderColor = id === sig.rule ? sig.color : 'var(--border)'; el.style.background = id === sig.rule ? sig.color+'11' : ''; }
+  ['both','fg-fear','mvrv-low','normal','greed','mvrv-high'].forEach(id => {
+    const el = document.getElementById('ind-'+id);
+    if (!el) return;
+    el.style.background = id===sig.rule ? sig.color : 'transparent';
+    el.style.boxShadow  = id===sig.rule ? `0 0 8px ${sig.color}` : 'none';
   });
 
   renderChart();
   updateSchedule();
 }
 
-// ─────────────────────────────────────────────
-// CHART
-// ─────────────────────────────────────────────
-function getFilteredData(arr, days) {
-  const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - days);
+// ── CHART ─────────────────────────────────────────────
+function getFiltered(arr, period) {
+  if (period === 'max') return arr;
+  const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - period);
   return arr.filter(d => d.t >= cutoff);
 }
 
-function alignByDate(btc, fg) {
-  // Merge on closest date
-  const fgMap = {};
-  fg.forEach(d => { fgMap[d.t.toDateString()] = d.v; });
-  return btc.map(d => ({ t: d.t, btc: d.v, fg: fgMap[d.t.toDateString()] ?? null }));
-}
-
 function renderChart() {
-  const canvas = document.getElementById('mainChart');
+  const canvas  = document.getElementById('mainChart');
   const loading = document.getElementById('chart-loading');
-
-  const btcData = getFilteredData(state.btcHistory, state.currentPeriod);
-  const fgData  = getFilteredData(state.fgHistory,  state.currentPeriod);
-  const mvData  = getFilteredData(state.mvrvHistory, state.currentPeriod);
+  const btcData = getFiltered(state.btcHistory, state.currentPeriod);
+  const fgData  = getFiltered(state.fgHistory,  state.currentPeriod);
 
   if (!btcData.length) { loading.style.display='flex'; canvas.style.display='none'; return; }
-  loading.style.display='none'; canvas.style.display='block';
+  loading.style.display = 'none';
+  canvas.style.display  = 'block';
 
-  const labels = btcData.map(d => d.t.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit', year: state.currentPeriod > 300 ? '2-digit' : undefined}));
+  const isLong = state.currentPeriod === 'max' || state.currentPeriod >= 365*2;
+  const labels = btcData.map(d => d.t.toLocaleDateString('fr-FR', isLong ? {month:'short',year:'2-digit'} : {day:'2-digit',month:'2-digit'}));
 
-  // Align fg to btc dates
   const fgMap = {}; fgData.forEach(d => { fgMap[d.t.toDateString()] = d.v; });
   const fgAligned = btcData.map(d => fgMap[d.t.toDateString()] ?? null);
-
-  const mvMap = {}; mvData.forEach(d => { mvMap[d.t.toDateString()] = d.v; });
-  const mvAligned = btcData.map(d => mvMap[d.t.toDateString()] ?? null);
-
-  const datasets = [
-    {
-      label: 'Prix BTC',
-      data: btcData.map(d => d.v),
-      borderColor: '#f7931a',
-      backgroundColor: 'rgba(247,147,26,0.04)',
-      fill: true,
-      tension: 0.3,
-      pointRadius: 0,
-      borderWidth: 2,
-      yAxisID: 'yBTC',
-    },
-    {
-      label: 'Fear & Greed',
-      data: fgAligned,
-      borderColor: '#3b82f6',
-      backgroundColor: 'rgba(59,130,246,0.0)',
-      tension: 0.3,
-      pointRadius: 0,
-      borderWidth: 1.5,
-      borderDash: [],
-      yAxisID: 'yIndicator',
-      spanGaps: true,
-    },
-  ];
-
-  if (mvData.length > 0) {
-    datasets.push({
-      label: 'MVRV Ratio',
-      data: mvAligned,
-      borderColor: '#a78bfa',
-      backgroundColor: 'rgba(167,139,250,0.0)',
-      tension: 0.3,
-      pointRadius: 0,
-      borderWidth: 1.5,
-      yAxisID: 'yIndicator',
-      spanGaps: true,
-    });
-  }
 
   if (state.chartInstance) { state.chartInstance.destroy(); }
 
   const ctx = canvas.getContext('2d');
   state.chartInstance = new Chart(ctx, {
     type: 'line',
-    data: { labels, datasets },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: { mode:'index', intersect: false },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#111118',
-          borderColor: '#1e1e2e',
-          borderWidth: 1,
-          titleColor: '#5a5a7a',
-          bodyColor: '#e8e8f0',
-          titleFont: { family:'Space Mono', size:9 },
-          bodyFont:  { family:'Space Mono', size:11 },
-          callbacks: {
-            label: ctx => {
-              if (ctx.dataset.yAxisID === 'yBTC') return ' BTC: ' + fmtUSD(ctx.raw);
-              if (ctx.dataset.label === 'Fear & Greed') return ' F&G: ' + (ctx.raw !== null ? Math.round(ctx.raw) : '—');
-              return ' MVRV: ' + (ctx.raw !== null ? ctx.raw.toFixed(2) : '—');
-            }
-          }
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Prix BTC',
+          data: btcData.map(d => d.v),
+          borderColor: '#f7931a',
+          backgroundColor: 'rgba(247,147,26,.05)',
+          fill: true, tension: 0.3, pointRadius: 0, borderWidth: 2,
+          yAxisID: 'yBTC',
         },
-        annotation: {
-          // not using annotation plugin — we draw reference lines manually via afterDraw
+        {
+          label: 'Fear & Greed',
+          data: fgAligned,
+          borderColor: '#3b82f6',
+          backgroundColor: 'rgba(59,130,246,0)',
+          tension: 0.4, pointRadius: 0, borderWidth: 1.5,
+          yAxisID: 'yFG', spanGaps: true,
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode:'index', intersect:false },
+      plugins: {
+        legend: { display:false },
+        tooltip: {
+          backgroundColor:'#111118', borderColor:'#1e1e2e', borderWidth:1,
+          titleColor:'#5a5a7a', bodyColor:'#e8e8f0',
+          titleFont:{family:'Space Mono',size:9}, bodyFont:{family:'Space Mono',size:11},
+          callbacks: {
+            label: ctx => ctx.dataset.yAxisID==='yBTC'
+              ? ' BTC: '+fmtUSD(ctx.raw)
+              : ' F&G: '+(ctx.raw!==null ? Math.round(ctx.raw)+' — '+fgLabel(Math.round(ctx.raw)) : '—')
+          }
         }
       },
       scales: {
         x: {
-          grid: { color:'rgba(255,255,255,0.03)' },
-          ticks: { color:'#5a5a7a', font:{ family:'Space Mono', size:9 }, maxTicksLimit: state.currentPeriod > 300 ? 8 : 6 }
+          grid: { color:'rgba(255,255,255,.03)' },
+          ticks: { color:'#5a5a7a', font:{family:'Space Mono',size:9}, maxTicksLimit: isLong?10:7 }
         },
         yBTC: {
-          type: 'linear',
-          position: 'left',
-          grid: { color:'rgba(255,255,255,0.04)' },
-          ticks: { color:'#f7931a', font:{ family:'Space Mono', size:9 }, callback: v => '$'+new Intl.NumberFormat('en').format(Math.round(v)) }
+          type: 'logarithmic', position: 'left',
+          grid: { color:'rgba(255,255,255,.04)' },
+          ticks: { color:'#f7931a', font:{family:'Space Mono',size:9}, callback: v => {
+            if([1000,5000,10000,50000,100000,500000].includes(v)) return '$'+new Intl.NumberFormat('en').format(v);
+            return null;
+          }}
         },
-        yIndicator: {
-          type: 'linear',
-          position: 'right',
-          min: -2,
-          max: 100,
-          grid: { drawOnChartArea: false },
-          ticks: { color:'#5a5a7a', font:{ family:'Space Mono', size:9 } }
+        yFG: {
+          type:'linear', position:'right', min:0, max:100,
+          grid:{drawOnChartArea:false},
+          ticks:{color:'#3b82f6',font:{family:'Space Mono',size:9}}
         }
       }
     },
-    plugins: [{
-      id: 'zoneLines',
-      afterDraw(chart) {
-        const { ctx, scales: { yIndicator, x } } = chart;
-        if (!yIndicator) return;
-        const drawLine = (val, color, label) => {
-          const y = yIndicator.getPixelForValue(val);
+    plugins:[{
+      id:'refLines',
+      afterDraw(chart){
+        const {ctx,scales:{yFG}} = chart;
+        if(!yFG) return;
+        [[25,'#22c55e','25'],[75,'#ef4444','75']].forEach(([val,color,lbl])=>{
+          const y = yFG.getPixelForValue(val);
           ctx.save();
-          ctx.strokeStyle = color;
-          ctx.lineWidth = 1;
-          ctx.setLineDash([4,4]);
-          ctx.globalAlpha = 0.5;
-          ctx.beginPath();
-          ctx.moveTo(chart.chartArea.left, y);
-          ctx.lineTo(chart.chartArea.right, y);
-          ctx.stroke();
-          ctx.globalAlpha = 0.7;
-          ctx.setLineDash([]);
-          ctx.fillStyle = color;
-          ctx.font = '9px Space Mono';
-          ctx.fillText(label, chart.chartArea.right + 4, y + 3);
+          ctx.strokeStyle=color; ctx.lineWidth=1; ctx.setLineDash([4,4]); ctx.globalAlpha=.5;
+          ctx.beginPath(); ctx.moveTo(chart.chartArea.left,y); ctx.lineTo(chart.chartArea.right,y); ctx.stroke();
+          ctx.setLineDash([]); ctx.globalAlpha=.8; ctx.fillStyle=color; ctx.font='9px Space Mono';
+          ctx.fillText(lbl, chart.chartArea.right+4, y+3);
           ctx.restore();
-        };
-        drawLine(25, '#22c55e', 'F&G 25');
-        drawLine(75, '#ef4444', 'F&G 75');
-        drawLine(0,  '#a78bfa', 'MVRV 0');
+        });
       }
     }]
   });
 }
 
-function setPeriod(days, btn) {
-  state.currentPeriod = days;
-  document.querySelectorAll('.period-tab').forEach(t => t.classList.remove('active'));
+function setPeriod(period, btn) {
+  state.currentPeriod = period;
+  document.querySelectorAll('.period-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
-  renderChart();
+  fetchBTC(period).then(() => updateUI());
 }
 
-// ─────────────────────────────────────────────
-// EMAIL
-// ─────────────────────────────────────────────
+// ── EMAIL ─────────────────────────────────────────────
 function renderSubscribers() {
-  const list = document.getElementById('subscribers-list');
-  list.innerHTML = subscribers.map((e,i) => `
-    <div class="subscriber-item">
-      <span>${e}</span>
-      <button class="remove-btn" onclick="removeSubscriber(${i})">✕</button>
-    </div>`).join('');
+  document.getElementById('subscribers-list').innerHTML =
+    subscribers.map((e,i)=>`<div class="subscriber-item"><span>${e}</span><button class="remove-btn" onclick="removeSubscriber(${i})">✕</button></div>`).join('');
 }
-
 function addSubscriber() {
-  const input = document.getElementById('email-input');
-  const email = input.value.trim();
-  if (!email || !email.includes('@')) { showToast('Email invalide', true); return; }
-  if (subscribers.includes(email)) { showToast('Déjà abonné', true); return; }
-  subscribers.push(email);
-  localStorage.setItem('dca_subscribers', JSON.stringify(subscribers));
-  input.value = '';
-  renderSubscribers();
-  showToast('✓ ' + email + ' ajouté');
+  const input=document.getElementById('email-input'), email=input.value.trim();
+  if(!email||!email.includes('@')){ showToast('Email invalide',true); return; }
+  if(subscribers.includes(email)){ showToast('Déjà abonné',true); return; }
+  subscribers.push(email); localStorage.setItem('dca_subscribers',JSON.stringify(subscribers));
+  input.value=''; renderSubscribers(); showToast('✓ '+email+' ajouté');
 }
-
-function removeSubscriber(i) {
-  subscribers.splice(i,1);
-  localStorage.setItem('dca_subscribers', JSON.stringify(subscribers));
-  renderSubscribers();
-}
-
-function buildEmailBody() {
-  const sig = computeSignal();
-  return [
-    `📊 BTC DCA Signal — ${new Date().toLocaleDateString('fr-FR')}`,
-    ``,
-    `💰 Prix Bitcoin : ${state.btcPrice ? fmtUSD(state.btcPrice) : 'N/A'}${state.btcChange ? ' ('+state.btcChange+'%)' : ''}`,
-    ``,
+function removeSubscriber(i){ subscribers.splice(i,1); localStorage.setItem('dca_subscribers',JSON.stringify(subscribers)); renderSubscribers(); }
+function buildEmailBody(){
+  const sig=computeSignal();
+  return [`📊 BTC DCA Signal — ${new Date().toLocaleDateString('fr-FR')}`,``,
+    `💰 Prix : ${state.btcPrice?fmtUSD(state.btcPrice):'N/A'}${state.btcChange?' ('+state.btcChange+'%)':''}`,``,
     `📈 INDICATEURS`,
-    `• Fear & Greed : ${state.fg !== null ? state.fg+'/100 — '+fgLabel(state.fg) : 'N/A'}`,
-    `• MVRV Z-Score : ${state.mvrv !== null ? state.mvrv.toFixed(2)+' — '+mvrvLabel(state.mvrv) : 'N/A'}`,
-    ``,
-    `🎯 SIGNAL DU JOUR`,
-    `${sig.action}`,
-    `Mise recommandée : ${sig.amount}€ (base 100€)`,
-    `Raison : ${sig.reason}`,
-    ``,
-    `─────────────────────`,
-    `Règles Chamosset :`,
-    `F&G < 25 → 200€ | MVRV < 0 → 200€ | Les deux → 300€`,
-    `Normal → 100€ | F&G > 75 → 50€ | MVRV > 7 → Réduire`,
-  ].join('\n');
+    `• Fear & Greed : ${state.fg!==null?state.fg+'/100 — '+fgLabel(state.fg):'N/A'}`,
+    `• MVRV : ${state.mvrv!==null?state.mvrv.toFixed(2)+' — '+mvrvLabel(state.mvrv):'N/A'}`,``,
+    `🎯 SIGNAL : ${sig.action}`,
+    `Mise : ${sig.amount}€ (base 100€) — ${sig.reason}`].join('\n');
 }
-
-async function sendEmailTo(email) {
-  if (!emailConfig.serviceId || !emailConfig.templateId || !emailConfig.publicKey) return false;
-  try {
+async function sendEmailTo(email){
+  if(!emailConfig.serviceId||!emailConfig.templateId||!emailConfig.publicKey) return false;
+  try{
     emailjs.init(emailConfig.publicKey);
-    const sig = computeSignal();
-    await emailjs.send(emailConfig.serviceId, emailConfig.templateId, {
-      to_email: email,
-      subject: `BTC DCA Signal — ${new Date().toLocaleDateString('fr-FR')} — ${sig.action}`,
-      message: buildEmailBody(),
-    });
-    return true;
-  } catch(e) { console.error('EmailJS', e); return false; }
+    const sig=computeSignal();
+    await emailjs.send(emailConfig.serviceId,emailConfig.templateId,{
+      to_email:email, subject:`BTC DCA — ${new Date().toLocaleDateString('fr-FR')} — ${sig.action}`, message:buildEmailBody()
+    }); return true;
+  }catch(e){ console.error(e); return false; }
 }
-
-async function sendNow() {
-  if (!subscribers.length) { showToast('Aucun abonné', true); return; }
-  if (!emailConfig.serviceId) { showToast('Configure EmailJS d\'abord', true); document.getElementById('config-panel').classList.add('open'); return; }
+async function sendNow(){
+  if(!subscribers.length){ showToast('Aucun abonné',true); return; }
+  if(!emailConfig.serviceId){ showToast('Configure EmailJS d\'abord',true); document.getElementById('config-panel').classList.add('open'); return; }
   showToast('Envoi en cours...');
-  let ok = 0;
-  for (const email of subscribers) { if (await sendEmailTo(email)) ok++; }
-  showToast(`✓ Envoyé à ${ok}/${subscribers.length} abonné(s)`);
+  let ok=0; for(const e of subscribers){ if(await sendEmailTo(e)) ok++; }
+  showToast(`✓ Envoyé à ${ok}/${subscribers.length}`);
 }
-
-function saveConfig() {
-  emailConfig = {
-    serviceId: document.getElementById('ejs-service').value.trim(),
-    templateId: document.getElementById('ejs-template').value.trim(),
-    publicKey:  document.getElementById('ejs-pubkey').value.trim(),
-  };
-  localStorage.setItem('dca_emailjs', JSON.stringify(emailConfig));
-  document.getElementById('config-panel').classList.remove('open');
-  showToast('✓ Configuration sauvegardée');
+function saveConfig(){
+  emailConfig={serviceId:document.getElementById('ejs-service').value.trim(),templateId:document.getElementById('ejs-template').value.trim(),publicKey:document.getElementById('ejs-pubkey').value.trim()};
+  localStorage.setItem('dca_emailjs',JSON.stringify(emailConfig));
+  document.getElementById('config-panel').classList.remove('open'); showToast('✓ Config sauvegardée');
 }
-
-function toggleConfig() {
-  const p = document.getElementById('config-panel');
-  p.classList.toggle('open');
-  if (emailConfig.serviceId)  document.getElementById('ejs-service').value  = emailConfig.serviceId;
-  if (emailConfig.templateId) document.getElementById('ejs-template').value = emailConfig.templateId;
-  if (emailConfig.publicKey)  document.getElementById('ejs-pubkey').value   = emailConfig.publicKey;
+function toggleConfig(){
+  const p=document.getElementById('config-panel'); p.classList.toggle('open');
+  if(emailConfig.serviceId)  document.getElementById('ejs-service').value=emailConfig.serviceId;
+  if(emailConfig.templateId) document.getElementById('ejs-template').value=emailConfig.templateId;
+  if(emailConfig.publicKey)  document.getElementById('ejs-pubkey').value=emailConfig.publicKey;
 }
-
-function updateSchedule() {
-  const now = new Date(), next = new Date(now);
-  next.setDate(next.getDate() + (now.getHours() >= 8 ? 1 : 0));
-  next.setHours(8,0,0,0);
-  document.getElementById('next-send').textContent = next.toLocaleString('fr-FR',{weekday:'long',day:'2-digit',month:'long',hour:'2-digit',minute:'2-digit'});
+function updateSchedule(){
+  const now=new Date(),next=new Date(now);
+  next.setDate(next.getDate()+(now.getHours()>=8?1:0)); next.setHours(8,0,0,0);
+  document.getElementById('next-send').textContent=next.toLocaleString('fr-FR',{weekday:'long',day:'2-digit',month:'long',hour:'2-digit',minute:'2-digit'});
 }
-
-function checkDailyEmail() {
-  const now = new Date(), key = 'dca_last_sent', today = now.toDateString();
-  if (now.getHours() >= 8 && localStorage.getItem(key) !== today && subscribers.length && emailConfig.serviceId) {
-    localStorage.setItem(key, today);
-    sendNow();
+function checkDailyEmail(){
+  const now=new Date(),key='dca_last_sent',today=now.toDateString();
+  if(now.getHours()>=8&&localStorage.getItem(key)!==today&&subscribers.length&&emailConfig.serviceId){
+    localStorage.setItem(key,today); sendNow();
   }
 }
-
-// ─────────────────────────────────────────────
-// TOAST
-// ─────────────────────────────────────────────
-function showToast(msg, err) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.style.borderColor = err ? '#ef4444' : '#f7931a';
-  t.classList.add('show');
-  clearTimeout(t._to);
-  t._to = setTimeout(() => t.classList.remove('show'), 3500);
+function showToast(msg,err){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.style.borderColor=err?'#ef4444':'#f7931a';
+  t.classList.add('show'); clearTimeout(t._to); t._to=setTimeout(()=>t.classList.remove('show'),3500);
 }
 
-// ─────────────────────────────────────────────
-// INIT
-// ─────────────────────────────────────────────
-async function reload() {
-  document.getElementById('chart-loading').style.display = 'flex';
-  document.getElementById('mainChart').style.display = 'none';
-  await Promise.all([fetchFearGreed(), fetchBTC(), fetchMVRV()]);
-  updateUI();
-  checkDailyEmail();
+// ── INIT ──────────────────────────────────────────────
+async function reload(){
+  document.getElementById('chart-loading').style.display='flex';
+  document.getElementById('mainChart').style.display='none';
+  await Promise.all([fetchFearGreed(), fetchBTC(state.currentPeriod), fetchMVRV()]);
+  updateUI(); checkDailyEmail();
 }
 
 renderSubscribers();
 reload();
-setInterval(reload, 5 * 60 * 1000);
+setInterval(reload, 5*60*1000);
 </script>
 </body>
 </html>
