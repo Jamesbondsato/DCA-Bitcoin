@@ -20,7 +20,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.012) 39px,rgba(255,255,255,.012) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.012) 39px,rgba(255,255,255,.012) 40px);pointer-events:none;z-index:0;}
 .container{max-width:1000px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:1;}
 
-/* HEADER */
 header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px;}
 .logo-block h1{font-weight:800;font-size:2rem;letter-spacing:-.03em;line-height:1;}
 .logo-block h1 span{color:var(--accent);}
@@ -32,7 +31,6 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
 .refresh-btn{margin-top:6px;background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--mono);font-size:.6rem;padding:4px 10px;border-radius:2px;cursor:pointer;transition:all .2s;}
 .refresh-btn:hover{border-color:var(--accent);color:var(--accent);}
 
-/* SIGNAL */
 .signal-banner{border:1px solid var(--border);border-radius:4px;padding:20px 28px;margin-bottom:28px;display:flex;align-items:center;gap:20px;position:relative;overflow:hidden;}
 .signal-banner::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--signal-color,var(--accent));}
 .signal-dot{width:10px;height:10px;border-radius:50%;background:var(--signal-color,var(--accent));box-shadow:0 0 14px var(--signal-color,var(--accent));flex-shrink:0;animation:pulse 2s infinite;}
@@ -46,7 +44,6 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
 .signal-amount .rec{font-size:1.5rem;font-family:var(--sans);font-weight:800;line-height:1.1;}
 .signal-amount .mult{font-size:.65rem;color:var(--muted);}
 
-/* METRICS */
 .metrics-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:28px;}
 @media(max-width:620px){.metrics-grid{grid-template-columns:1fr;}}
 .metric-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px;}
@@ -56,65 +53,45 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
 .gauge-wrap{margin-top:10px;height:3px;background:var(--border);border-radius:2px;}
 .gauge-fill{height:100%;border-radius:2px;transition:width 1s ease;}
 .m-signal{font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-top:7px;}
-.mvrv-override{margin-top:10px;display:flex;gap:6px;align-items:center;}
+.mvrv-source{font-family:var(--mono);font-size:.55rem;color:var(--muted);margin-top:6px;line-height:1.5;}
+.mvrv-source a{color:var(--accent2);text-decoration:none;}
+.mvrv-override{margin-top:8px;display:flex;gap:6px;align-items:center;}
 .mvrv-override input{background:var(--bg);border:1px solid var(--border);border-radius:2px;color:var(--text);padding:4px 8px;font-family:var(--mono);font-size:.72rem;width:80px;outline:none;}
 .mvrv-override input:focus{border-color:var(--purple);}
 .mvrv-override button{background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--mono);font-size:.6rem;padding:4px 8px;border-radius:2px;cursor:pointer;transition:all .2s;white-space:nowrap;}
 .mvrv-override button:hover{border-color:var(--purple);color:var(--purple);}
-.mvrv-source{font-family:var(--mono);font-size:.55rem;color:var(--muted);margin-top:4px;line-height:1.5;}
-.mvrv-source a{color:var(--accent2);text-decoration:none;}
 
-/* CHART SECTION */
 .chart-section{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px;margin-bottom:28px;}
 .chart-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px;}
 .chart-title{font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
 .chart-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;}
 .legend-item{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.58rem;color:var(--muted);}
 .legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.legend-line{width:18px;height:2px;flex-shrink:0;}
 .period-tabs{display:flex;gap:4px;flex-wrap:wrap;}
 .period-tab{font-family:var(--mono);font-size:.58rem;padding:3px 9px;background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;border-radius:2px;transition:all .2s;}
 .period-tab.active,.period-tab:hover{border-color:var(--accent);color:var(--accent);}
 .chart-container{position:relative;height:280px;}
-.chart-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.72rem;color:var(--muted);animation:blink 1.2s infinite;}
+.chart-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.72rem;color:var(--muted);animation:blink 1.2s infinite;text-align:center;padding:0 20px;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.chart-divider{height:1px;background:var(--border);margin:24px 0;}
 .zone-info{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;}
 .zone-item{font-family:var(--mono);font-size:.58rem;color:var(--muted);display:flex;align-items:center;gap:6px;}
 .zone-dash{width:18px;border-top:2px dashed;}
 
-/* DCA BARS — fixed layout */
+/* DCA BARS */
 .dca-rules{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px;margin-bottom:28px;}
 .dca-rules h3{font-family:var(--mono);font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:24px;}
-
 .bars-container{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
 @media(max-width:640px){.bars-container{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:380px){.bars-container{grid-template-columns:repeat(2,1fr);}}
-
 .bar-col{display:flex;flex-direction:column;align-items:center;gap:6px;}
-
-/* Fixed height zone for bar + amount: 160px total */
 .bar-zone{width:100%;height:160px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;}
 .bar-bg{position:absolute;inset:0;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:3px 3px 0 0;}
-.bar-fill{width:100%;border-radius:2px 2px 0 0;position:relative;/* height set inline */}
-.bar-label-amount{
-  /* sits just above the bar fill */
-  font-family:var(--sans);font-weight:800;font-size:1.05rem;letter-spacing:-.02em;
-  text-align:center;line-height:1;
-  padding:6px 0 4px;
-  position:absolute;
-  left:0;right:0;
-  /* top positioned from top of bar-zone so it's always visible */
-}
-
-/* Condition badge */
+.bar-fill{width:100%;border-radius:2px 2px 0 0;position:relative;}
+.bar-amount{font-family:var(--sans);font-weight:800;font-size:1.05rem;letter-spacing:-.02em;text-align:center;line-height:1;position:absolute;left:0;right:0;color:#fff;}
 .bar-condition{font-family:var(--mono);font-size:.52rem;text-align:center;padding:3px 5px;border-radius:2px;line-height:1.5;width:100%;}
-/* Label text */
 .bar-name{font-family:var(--mono);font-size:.55rem;color:var(--muted);text-align:center;line-height:1.5;}
-/* Active dot */
 .bar-dot{width:6px;height:6px;border-radius:50%;background:transparent;transition:all .3s;}
 
-/* EMAIL */
 .email-section{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:24px;}
 .email-section h3{font-family:var(--mono);font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;}
 .email-row{display:flex;gap:8px;flex-wrap:wrap;}
@@ -142,14 +119,13 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
 <body>
 <div class="container">
 
-  <!-- HEADER -->
   <header>
     <div class="logo-block">
       <h1>BTC <span>DCA</span> Signal</h1>
       <p>Fear &amp; Greed · MVRV Z-Score</p>
     </div>
     <div class="header-right">
-      <div class="version-tag">v4.0</div>
+      <div class="version-tag">v4.1</div>
       <div class="last-update">
         <span id="btc-price-header">—</span>
         Mis à jour : <span id="update-time" style="display:inline">—</span>
@@ -182,18 +158,24 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
       <div class="gauge-wrap"><div class="gauge-fill" id="fg-gauge" style="width:0%"></div></div>
       <div class="m-signal" id="fg-signal">—</div>
     </div>
+
     <div class="metric-card">
       <div class="m-label">MVRV Z-Score</div>
       <div class="m-value" id="mvrv-value">—</div>
       <span class="m-badge" id="mvrv-badge">—</span>
       <div class="gauge-wrap"><div class="gauge-fill" id="mvrv-gauge" style="width:0%"></div></div>
       <div class="m-signal" id="mvrv-signal">—</div>
+      <div class="mvrv-source">
+        Source : <a href="https://charts.bitbo.io/mvrv-z-score/" target="_blank">Bitbo ↗</a>
+        · <span id="mvrv-src-label">Chargement...</span>
+        <br>Valeur exacte aussi sur <a href="https://studio.glassnode.com/metrics?a=BTC&m=market.MvrvZScore" target="_blank">Glassnode ↗</a>
+      </div>
       <div class="mvrv-override">
         <input type="number" id="mvrv-manual" placeholder="ex: 2.4" step="0.01">
-        <button onclick="applyManualMVRV()">Appliquer</button>
+        <button onclick="applyManualMVRV()">Corriger</button>
       </div>
-      <div class="mvrv-source">Valeur exacte sur <a href="https://studio.glassnode.com/metrics?a=BTC&m=market.MvrvZScore" target="_blank">Glassnode ↗</a> · <span id="mvrv-src-label">Calcul auto (CoinMetrics)</span></div>
     </div>
+
     <div class="metric-card">
       <div class="m-label">Bitcoin / USD</div>
       <div class="m-value" id="btc-card-price" style="color:var(--accent);font-size:1.45rem">—</div>
@@ -210,7 +192,7 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
         <div class="chart-title">Prix BTC &amp; Fear &amp; Greed Index</div>
         <div class="chart-legend">
           <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>Prix BTC (gauche, log)</div>
-          <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div>Fear &amp; Greed (droite)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div>Fear &amp; Greed (droite 0–100)</div>
         </div>
       </div>
       <div class="period-tabs" id="tabs1">
@@ -221,7 +203,10 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
         <button class="period-tab" onclick="setPeriod1(30,this)">1M</button>
       </div>
     </div>
-    <div class="chart-container"><div class="chart-loading" id="loading1">Chargement...</div><canvas id="chart1" style="display:none"></canvas></div>
+    <div class="chart-container">
+      <div class="chart-loading" id="loading1">Chargement...</div>
+      <canvas id="chart1" style="display:none"></canvas>
+    </div>
     <div class="zone-info">
       <div class="zone-item"><div class="zone-dash" style="border-color:var(--green)"></div>F&amp;G = 25 — seuil ×2</div>
       <div class="zone-item"><div class="zone-dash" style="border-color:var(--red)"></div>F&amp;G = 75 — seuil ÷2</div>
@@ -232,12 +217,12 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
   <div class="chart-section">
     <div class="chart-header">
       <div>
-        <div class="chart-title">Prix BTC &amp; MVRV Z-Score</div>
+        <div class="chart-title">Prix BTC &amp; MVRV Z-Score <span style="font-size:.65rem;color:var(--muted);font-weight:400">(source : Bitbo)</span></div>
         <div class="chart-legend">
           <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>Prix BTC (gauche, log)</div>
           <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>MVRV Z-Score (droite)</div>
-          <div class="legend-item"><div class="legend-line" style="background:var(--green);height:2px;border-top:2px dashed var(--green)"></div>Z = 0 (sous-évalué)</div>
-          <div class="legend-item"><div class="legend-line" style="background:var(--red);height:2px;border-top:2px dashed var(--red)"></div>Z = 7 (distribution)</div>
+          <div class="legend-item" style="gap:4px"><div style="width:16px;border-top:2px dashed var(--green)"></div>Z = 0</div>
+          <div class="legend-item" style="gap:4px"><div style="width:16px;border-top:2px dashed var(--red)"></div>Z = 7</div>
         </div>
       </div>
       <div class="period-tabs" id="tabs2">
@@ -248,24 +233,26 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
         <button class="period-tab" onclick="setPeriod2(30,this)">1M</button>
       </div>
     </div>
-    <div class="chart-container"><div class="chart-loading" id="loading2">Chargement MVRV...</div><canvas id="chart2" style="display:none"></canvas></div>
+    <div class="chart-container">
+      <div class="chart-loading" id="loading2">Chargement MVRV Z-Score (Bitbo)...</div>
+      <canvas id="chart2" style="display:none"></canvas>
+    </div>
     <div class="zone-info">
-      <div class="zone-item"><div class="zone-dash" style="border-color:var(--green)"></div>MVRV Z &lt; 0 — sous-évalué → DCA ×2</div>
-      <div class="zone-item"><div class="zone-dash" style="border-color:var(--red)"></div>MVRV Z &gt; 7 — distribution → réduire</div>
+      <div class="zone-item"><div class="zone-dash" style="border-color:var(--green)"></div>Z &lt; 0 — BTC sous-évalué → DCA ×2</div>
+      <div class="zone-item"><div class="zone-dash" style="border-color:var(--red)"></div>Z &gt; 7 — Zone distribution → réduire</div>
     </div>
   </div>
 
-  <!-- DCA RULES BARS -->
+  <!-- DCA BARS -->
   <div class="dca-rules">
     <h3>Règles DCA (base 100€/mois)</h3>
     <div class="bars-container">
 
-      <!-- 300€ — Conditions idéales -->
       <div class="bar-col" id="bar-both">
         <div class="bar-zone">
           <div class="bar-bg"></div>
-          <div class="bar-fill" style="height:100%;background:linear-gradient(180deg,#6d28d9,#a78bfa);position:relative;">
-            <div class="bar-label-amount" style="color:#fff;top:10px;">300€</div>
+          <div class="bar-fill" style="height:100%;background:linear-gradient(180deg,#6d28d9,#a78bfa);">
+            <div class="bar-amount" style="top:10px;">300€</div>
           </div>
         </div>
         <div class="bar-condition" style="background:rgba(167,139,250,.15);color:#a78bfa">F&amp;G &lt; 25<br>+ MVRV &lt; 0</div>
@@ -273,12 +260,11 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
         <div class="bar-dot" id="dot-both"></div>
       </div>
 
-      <!-- 200€ — Extreme Fear -->
       <div class="bar-col" id="bar-fg-fear">
         <div class="bar-zone">
           <div class="bar-bg"></div>
-          <div class="bar-fill" style="height:66.7%;background:linear-gradient(180deg,#166534,#22c55e);position:relative;">
-            <div class="bar-label-amount" style="color:#fff;top:10px;">200€</div>
+          <div class="bar-fill" style="height:66.7%;background:linear-gradient(180deg,#166534,#22c55e);">
+            <div class="bar-amount" style="top:10px;">200€</div>
           </div>
         </div>
         <div class="bar-condition" style="background:rgba(34,197,94,.15);color:#22c55e">F&amp;G &lt; 25</div>
@@ -286,25 +272,23 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
         <div class="bar-dot" id="dot-fg-fear"></div>
       </div>
 
-      <!-- 200€ — MVRV bas -->
       <div class="bar-col" id="bar-mvrv-low">
         <div class="bar-zone">
           <div class="bar-bg"></div>
-          <div class="bar-fill" style="height:66.7%;background:linear-gradient(180deg,#0e7490,#22d3ee);position:relative;">
-            <div class="bar-label-amount" style="color:#fff;top:10px;">200€</div>
+          <div class="bar-fill" style="height:66.7%;background:linear-gradient(180deg,#0e7490,#22d3ee);">
+            <div class="bar-amount" style="top:10px;">200€</div>
           </div>
         </div>
-        <div class="bar-condition" style="background:rgba(34,211,238,.15);color:#22d3ee">MVRV &lt; 0</div>
+        <div class="bar-condition" style="background:rgba(34,211,238,.15);color:#22d3ee">MVRV Z &lt; 0</div>
         <div class="bar-name">BTC<br>sous-évalué</div>
         <div class="bar-dot" id="dot-mvrv-low"></div>
       </div>
 
-      <!-- 100€ — Normal -->
       <div class="bar-col" id="bar-normal">
         <div class="bar-zone">
           <div class="bar-bg"></div>
-          <div class="bar-fill" style="height:33.3%;background:linear-gradient(180deg,#92400e,#f7931a);position:relative;">
-            <div class="bar-label-amount" style="color:#fff;top:10px;">100€</div>
+          <div class="bar-fill" style="height:33.3%;background:linear-gradient(180deg,#92400e,#f7931a);">
+            <div class="bar-amount" style="top:8px;">100€</div>
           </div>
         </div>
         <div class="bar-condition" style="background:rgba(247,147,26,.15);color:#f7931a">Neutre</div>
@@ -312,12 +296,11 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
         <div class="bar-dot" id="dot-normal"></div>
       </div>
 
-      <!-- 50€ — Greed -->
       <div class="bar-col" id="bar-greed">
         <div class="bar-zone">
           <div class="bar-bg"></div>
           <div class="bar-fill" style="height:16.7%;background:linear-gradient(180deg,#854d0e,#eab308);position:relative;">
-            <div class="bar-label-amount" style="color:var(--text);top:-22px;font-size:.85rem;">50€</div>
+            <div class="bar-amount" style="top:-22px;color:var(--yellow);">50€</div>
           </div>
         </div>
         <div class="bar-condition" style="background:rgba(234,179,8,.15);color:#eab308">F&amp;G &gt; 75</div>
@@ -325,15 +308,13 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
         <div class="bar-dot" id="dot-greed"></div>
       </div>
 
-      <!-- ↓ — Distribution -->
       <div class="bar-col" id="bar-mvrv-high">
         <div class="bar-zone">
           <div class="bar-bg"></div>
-          <div class="bar-fill" style="height:5%;background:linear-gradient(180deg,#7f1d1d,#ef4444);position:relative;"></div>
-          <!-- arrow placed at mid-height of the bar-zone -->
-          <div style="position:absolute;bottom:50%;left:0;right:0;text-align:center;font-size:1.3rem;color:#ef4444;line-height:1;">↓</div>
+          <div class="bar-fill" style="height:5%;background:linear-gradient(180deg,#7f1d1d,#ef4444);"></div>
+          <div style="position:absolute;bottom:40%;left:0;right:0;text-align:center;font-size:1.4rem;color:#ef4444;">↓</div>
         </div>
-        <div class="bar-condition" style="background:rgba(239,68,68,.15);color:#ef4444">MVRV &gt; 7</div>
+        <div class="bar-condition" style="background:rgba(239,68,68,.15);color:#ef4444">MVRV Z &gt; 7</div>
         <div class="bar-name">Zone<br>distribution</div>
         <div class="bar-dot" id="dot-mvrv-high"></div>
       </div>
@@ -366,17 +347,15 @@ header{display:flex;align-items:flex-start;justify-content:space-between;margin-
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
 // ─── STATE ───────────────────────────────────────────
-const VER = 'v4.0';
 let S = {
   fg: null, fgHistory: [],
-  mvrv: null, mvrvZHistory: [], mvrvSrc: 'auto',
+  mvrv: null, mvrvHistory: [], mvrvSrc: 'auto',
   btcPrice: null, btcChange: null, btcHistory: [],
   p1: 365, p2: 365,
   c1: null, c2: null,
 };
 let emailCfg = JSON.parse(localStorage.getItem('dca_emailjs')||'{}');
 let subs = JSON.parse(localStorage.getItem('dca_subs')||'[]');
-
 const fmtUSD = v => new Intl.NumberFormat('fr-FR',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(v);
 
 // ─── FETCH ───────────────────────────────────────────
@@ -390,8 +369,8 @@ async function fetchFG() {
 }
 
 async function fetchBTC(period) {
-  const param = period==='max'?'max':period;
   try {
+    const param = period==='max'?'max':period;
     const r = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${param}&interval=daily`);
     const j = await r.json();
     S.btcHistory = j.prices.map(p=>({t:new Date(p[0]),v:p[1]}));
@@ -403,34 +382,33 @@ async function fetchBTC(period) {
   }
 }
 
-// MVRV Z-Score: calculated from CoinMetrics MarketCap + RealizedCap (free)
-// Z = (MarketCap - RealizedCap) / stddev(MarketCap_history)
+// ✅ VRAI MVRV Z-Score depuis Bitbo (API publique, sans clé)
 async function fetchMVRV() {
   if(S.mvrvSrc==='manual') return;
   try {
-    // Fetch 4 years for std-dev calculation, regardless of chart period
+    // Historique : 10 ans en arrière
     const end = new Date();
-    const start = new Date(end); start.setFullYear(start.getFullYear()-4);
-    const url = `https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=CapMrktCurUSD,CapRealUSD&start_time=${start.toISOString().split('T')[0]}&end_time=${end.toISOString().split('T')[0]}&frequency=1d`;
+    const start = new Date(end); start.setFullYear(start.getFullYear()-10);
+    const sd = start.toISOString().split('T')[0];
+    const ed = end.toISOString().split('T')[0];
+
+    const url = `https://charts.bitbo.io/api/v1/mvrv-z/?start_date=${sd}&end_date=${ed}`;
     const r = await fetch(url);
     const j = await r.json();
-    if(!j.data?.length) return;
-    const sorted = j.data.sort((a,b)=>new Date(a.time)-new Date(b.time));
 
-    // Compute rolling std-dev of MarketCap (full window)
-    const mktCaps = sorted.map(d=>+d.CapMrktCurUSD);
-    const mean = mktCaps.reduce((a,b)=>a+b,0)/mktCaps.length;
-    const stddev = Math.sqrt(mktCaps.map(v=>(v-mean)**2).reduce((a,b)=>a+b,0)/mktCaps.length);
-
-    S.mvrvZHistory = sorted.map(d=>({
-      t: new Date(d.time),
-      v: (+d.CapMrktCurUSD - +d.CapRealUSD) / stddev
-    }));
-
-    const latest = S.mvrvZHistory[S.mvrvZHistory.length-1];
-    S.mvrv = latest.v;
-    document.getElementById('mvrv-src-label').textContent = 'Calcul auto (CoinMetrics)';
-  } catch(e){ console.warn('MVRV',e); }
+    if(j.data && j.data.length) {
+      S.mvrvHistory = j.data.map(d=>({
+        t: new Date(d[0]),
+        v: parseFloat(d[1])
+      }));
+      // Valeur la plus récente
+      S.mvrv = S.mvrvHistory[S.mvrvHistory.length-1].v;
+      document.getElementById('mvrv-src-label').textContent = 'Bitbo · Vrai Z-Score ✓';
+    }
+  } catch(e) {
+    console.warn('MVRV Bitbo error', e);
+    document.getElementById('mvrv-src-label').textContent = 'Erreur — saisir manuellement';
+  }
 }
 
 function applyManualMVRV(){
@@ -442,16 +420,16 @@ function applyManualMVRV(){
   updateUI(); showToast('✓ MVRV Z-Score : '+v.toFixed(2));
 }
 
-// ─── SIGNAL ───────────────────────────────────────────
+// ─── SIGNAL ──────────────────────────────────────────
 function sig(){
-  const fg=S.fg,mv=S.mvrv;
-  const ef=fg!==null&&fg<25,ml=mv!==null&&mv<0,gr=fg!==null&&fg>75,mh=mv!==null&&mv>7;
-  if(ef&&ml) return{action:'Acheter 3× — Conditions parfaites',amount:300,mult:'× 3',color:'#a78bfa',reason:'F&G < 25 ET MVRV Z < 0',rule:'both'};
-  if(ef)     return{action:'Acheter 2× — Extreme Fear',         amount:200,mult:'× 2',color:'#22c55e',reason:'Fear & Greed < 25',       rule:'fg-fear'};
-  if(ml)     return{action:'Acheter 2× — BTC sous-évalué',      amount:200,mult:'× 2',color:'#22d3ee',reason:'MVRV Z-Score < 0',        rule:'mvrv-low'};
-  if(gr)     return{action:'Réduire — Euphorie du marché',       amount:50, mult:'÷ 2',color:'#eab308',reason:'Fear & Greed > 75',       rule:'greed'};
-  if(mh)     return{action:'Réduire fortement — Distribution',   amount:50, mult:'↓',  color:'#ef4444',reason:'MVRV Z-Score > 7',        rule:'mvrv-high'};
-  return           {action:'DCA standard — Marché neutre',       amount:100,mult:'× 1',color:'#f7931a',reason:'Conditions normales',      rule:'normal'};
+  const fg=S.fg, mv=S.mvrv;
+  const ef=fg!==null&&fg<25, ml=mv!==null&&mv<0, gr=fg!==null&&fg>75, mh=mv!==null&&mv>7;
+  if(ef&&ml) return{action:'Acheter 3× — Conditions parfaites',amount:300,mult:'× 3',color:'#a78bfa',reason:'F&G < 25 ET MVRV Z < 0',   rule:'both'};
+  if(ef)     return{action:'Acheter 2× — Extreme Fear',         amount:200,mult:'× 2',color:'#22c55e',reason:'Fear & Greed < 25',         rule:'fg-fear'};
+  if(ml)     return{action:'Acheter 2× — BTC sous-évalué',      amount:200,mult:'× 2',color:'#22d3ee',reason:'MVRV Z-Score < 0',          rule:'mvrv-low'};
+  if(gr)     return{action:'Réduire — Euphorie du marché',       amount:50, mult:'÷ 2',color:'#eab308',reason:'Fear & Greed > 75',         rule:'greed'};
+  if(mh)     return{action:'Réduire fortement — Distribution',   amount:50, mult:'↓',  color:'#ef4444',reason:'MVRV Z-Score > 7',          rule:'mvrv-high'};
+  return           {action:'DCA standard — Marché neutre',       amount:100,mult:'× 1',color:'#f7931a',reason:'Conditions normales',        rule:'normal'};
 }
 
 // ─── COLORS ──────────────────────────────────────────
@@ -463,10 +441,42 @@ function mvrvLabel(v){if(v<0)return'Sous-évalué';if(v<3)return'Neutre';if(v<7)
 // ─── UI ──────────────────────────────────────────────
 function updateUI(){
   document.getElementById('update-time').textContent=new Date().toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
-  if(S.btcPrice){const p=fmtUSD(S.btcPrice);document.getElementById('btc-price-header').textContent=p;document.getElementById('btc-card-price').textContent=p;if(S.btcChange!==null){const ch=+S.btcChange,el=document.getElementById('btc-change-badge');el.textContent=(ch>=0?'+':'')+ch+'% (24h)';el.style.background=ch>=0?'rgba(34,197,94,.15)':'rgba(239,68,68,.15)';el.style.color=ch>=0?'#22c55e':'#ef4444';}}
-  if(S.fg!==null){const c=fgColor(S.fg);document.getElementById('fg-value').textContent=S.fg;document.getElementById('fg-value').style.color=c;document.getElementById('fg-badge').textContent=fgLabel(S.fg);document.getElementById('fg-badge').style.background=c+'22';document.getElementById('fg-badge').style.color=c;document.getElementById('fg-gauge').style.width=S.fg+'%';document.getElementById('fg-gauge').style.background=c;document.getElementById('fg-signal').textContent=S.fg<25?'→ Signal: Doubler la mise':S.fg>75?'→ Signal: Diviser par 2':'→ Signal: DCA normal';}
-  if(S.mvrv!==null){const c=mvrvColor(S.mvrv);document.getElementById('mvrv-value').textContent=S.mvrv.toFixed(2);document.getElementById('mvrv-value').style.color=c;document.getElementById('mvrv-badge').textContent=mvrvLabel(S.mvrv);document.getElementById('mvrv-badge').style.background=c+'22';document.getElementById('mvrv-badge').style.color=c;const gw=Math.max(0,Math.min(100,((S.mvrv+2)/12)*100));document.getElementById('mvrv-gauge').style.width=gw+'%';document.getElementById('mvrv-gauge').style.background=c;document.getElementById('mvrv-signal').textContent=S.mvrv<0?'→ Signal: Augmenter DCA':S.mvrv>7?'→ Signal: Réduire fortement':'→ Signal: Neutre';}
-  else{document.getElementById('mvrv-value').textContent='N/A';document.getElementById('mvrv-badge').textContent='Saisir manuellement ↓';document.getElementById('mvrv-signal').textContent='→ Voir glassnode.com';}
+
+  if(S.btcPrice){
+    const p=fmtUSD(S.btcPrice);
+    document.getElementById('btc-price-header').textContent=p;
+    document.getElementById('btc-card-price').textContent=p;
+    if(S.btcChange!==null){const ch=+S.btcChange,el=document.getElementById('btc-change-badge');el.textContent=(ch>=0?'+':'')+ch+'% (24h)';el.style.background=ch>=0?'rgba(34,197,94,.15)':'rgba(239,68,68,.15)';el.style.color=ch>=0?'#22c55e':'#ef4444';}
+  }
+
+  if(S.fg!==null){
+    const c=fgColor(S.fg);
+    document.getElementById('fg-value').textContent=S.fg;
+    document.getElementById('fg-value').style.color=c;
+    document.getElementById('fg-badge').textContent=fgLabel(S.fg);
+    document.getElementById('fg-badge').style.background=c+'22';
+    document.getElementById('fg-badge').style.color=c;
+    document.getElementById('fg-gauge').style.width=S.fg+'%';
+    document.getElementById('fg-gauge').style.background=c;
+    document.getElementById('fg-signal').textContent=S.fg<25?'→ Signal: Doubler la mise':S.fg>75?'→ Signal: Diviser par 2':'→ Signal: DCA normal';
+  }
+
+  if(S.mvrv!==null){
+    const c=mvrvColor(S.mvrv);
+    document.getElementById('mvrv-value').textContent=S.mvrv.toFixed(2);
+    document.getElementById('mvrv-value').style.color=c;
+    document.getElementById('mvrv-badge').textContent=mvrvLabel(S.mvrv);
+    document.getElementById('mvrv-badge').style.background=c+'22';
+    document.getElementById('mvrv-badge').style.color=c;
+    const gw=Math.max(0,Math.min(100,((S.mvrv+2)/12)*100));
+    document.getElementById('mvrv-gauge').style.width=gw+'%';
+    document.getElementById('mvrv-gauge').style.background=c;
+    document.getElementById('mvrv-signal').textContent=S.mvrv<0?'→ Signal: Augmenter DCA':S.mvrv>7?'→ Signal: Réduire fortement':'→ Signal: Neutre';
+  } else {
+    document.getElementById('mvrv-value').textContent='N/A';
+    document.getElementById('mvrv-badge').textContent='Saisir manuellement ↓';
+    document.getElementById('mvrv-signal').textContent='→ Voir glassnode.com';
+  }
 
   const s=sig();
   document.getElementById('signal-action').textContent=s.action;
@@ -489,78 +499,20 @@ function updateUI(){
 }
 
 // ─── CHARTS ──────────────────────────────────────────
-function filtered(arr,period){
-  if(period==='max')return arr;
-  const c=new Date();c.setDate(c.getDate()-period);return arr.filter(d=>d.t>=c);
+function filtered(arr, period){
+  if(period==='max') return arr;
+  const c=new Date(); c.setDate(c.getDate()-period);
+  return arr.filter(d=>d.t>=c);
 }
-function tickLabels(btcData,period){
-  const isLong=period==='max'||period>=730;
-  return btcData.map(d=>d.t.toLocaleDateString('fr-FR',isLong?{month:'short',year:'2-digit'}:{day:'2-digit',month:'2-digit'}));
+function xLabels(arr, period){
+  const isLong = period==='max'||period>=730;
+  return arr.map(d=>d.t.toLocaleDateString('fr-FR', isLong?{month:'short',year:'2-digit'}:{day:'2-digit',month:'2-digit'}));
 }
-
-function renderChart1(){
-  const canvas=document.getElementById('chart1'),ld=document.getElementById('loading1');
-  const btcD=filtered(S.btcHistory,S.p1),fgD=filtered(S.fgHistory,S.p1);
-  if(!btcD.length){ld.style.display='flex';canvas.style.display='none';return;}
-  ld.style.display='none';canvas.style.display='block';
-  const labels=tickLabels(btcD,S.p1);
-  const fgMap={};fgD.forEach(d=>{fgMap[d.t.toDateString()]=d.v;});
-  const fgA=btcD.map(d=>fgMap[d.t.toDateString()]??null);
-  if(S.c1)S.c1.destroy();
-  S.c1=new Chart(canvas.getContext('2d'),{
-    type:'line',
-    data:{labels,datasets:[
-      {label:'Prix BTC',data:btcD.map(d=>d.v),borderColor:'#f7931a',backgroundColor:'rgba(247,147,26,.05)',fill:true,tension:.3,pointRadius:0,borderWidth:2,yAxisID:'yBTC'},
-      {label:'F&G',data:fgA,borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,0)',tension:.4,pointRadius:0,borderWidth:1.5,yAxisID:'yFG',spanGaps:true}
-    ]},
-    options:chartOpts('yBTC','yFG',S.p1,[[25,'#22c55e','25'],[75,'#ef4444','75']],'yFG',0,100),
-    plugins:[refLinesPlugin('yFG',[[25,'#22c55e','25'],[75,'#ef4444','75']])]
-  });
-}
-
-function renderChart2(){
-  const canvas=document.getElementById('chart2'),ld=document.getElementById('loading2');
-  const btcD=filtered(S.btcHistory,S.p2),mvD=filtered(S.mvrvZHistory,S.p2);
-  if(!btcD.length){ld.style.display='flex';canvas.style.display='none';return;}
-  if(!mvD.length){ld.textContent='MVRV Z-Score non disponible — saisir manuellement';return;}
-  ld.style.display='none';canvas.style.display='block';
-  const labels=tickLabels(btcD,S.p2);
-  const mvMap={};mvD.forEach(d=>{mvMap[d.t.toDateString()]=d.v;});
-  const mvA=btcD.map(d=>mvMap[d.t.toDateString()]??null);
-  if(S.c2)S.c2.destroy();
-  S.c2=new Chart(canvas.getContext('2d'),{
-    type:'line',
-    data:{labels,datasets:[
-      {label:'Prix BTC',data:btcD.map(d=>d.v),borderColor:'#f7931a',backgroundColor:'rgba(247,147,26,.05)',fill:true,tension:.3,pointRadius:0,borderWidth:2,yAxisID:'yBTC'},
-      {label:'MVRV Z',data:mvA,borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,0)',tension:.3,pointRadius:0,borderWidth:1.8,yAxisID:'yMV',spanGaps:true}
-    ]},
-    options:chartOpts('yBTC','yMV',S.p2,[[0,'#22c55e','Z=0'],[7,'#ef4444','Z=7']],'yMV',-3,14),
-    plugins:[refLinesPlugin('yMV',[[0,'#22c55e','0'],[7,'#ef4444','7']])]
-  });
-}
-
-function chartOpts(leftAxis,rightAxis,period,_refs,rightId,rMin,rMax){
-  const isLong=period==='max'||period>=730;
-  return{
-    responsive:true,maintainAspectRatio:false,
-    interaction:{mode:'index',intersect:false},
-    plugins:{legend:{display:false},tooltip:{backgroundColor:'#111118',borderColor:'#1e1e2e',borderWidth:1,titleColor:'#5a5a7a',bodyColor:'#e8e8f0',titleFont:{family:'Space Mono',size:9},bodyFont:{family:'Space Mono',size:11},
-      callbacks:{label:ctx=>ctx.dataset.yAxisID==='yBTC'?' BTC: '+fmtUSD(ctx.raw):ctx.dataset.label==='F&G'?' F&G: '+(ctx.raw!==null?Math.round(ctx.raw)+' — '+fgLabel(Math.round(ctx.raw)):'—')
-        :' MVRV Z: '+(ctx.raw!==null?ctx.raw.toFixed(2):'—')
-      }}},
-    scales:{
-      x:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'#5a5a7a',font:{family:'Space Mono',size:9},maxTicksLimit:isLong?10:7}},
-      yBTC:{type:'logarithmic',position:'left',grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#f7931a',font:{family:'Space Mono',size:9},callback:v=>[1000,5000,10000,50000,100000,500000].includes(v)?'$'+new Intl.NumberFormat('en').format(v):null}},
-      [rightId]:{type:'linear',position:'right',min:rMin,max:rMax,grid:{drawOnChartArea:false},ticks:{color:rightId==='yFG'?'#3b82f6':'#a78bfa',font:{family:'Space Mono',size:9}}}
-    }
-  };
-}
-
-function refLinesPlugin(axisId,refs){
-  return{id:'refs',afterDraw(chart){
-    const{ctx,scales}=chart;const ax=scales[axisId];if(!ax)return;
-    refs.forEach(([val,color,lbl])=>{
-      const y=ax.getPixelForValue(val);
+function refPlugin(axisId, refs){
+  return{id:'refs'+axisId,afterDraw(chart){
+    const{ctx,scales}=chart; const ax=scales[axisId]; if(!ax)return;
+    refs.forEach(([v,color,lbl])=>{
+      const y=ax.getPixelForValue(v);
       ctx.save();ctx.strokeStyle=color;ctx.lineWidth=1;ctx.setLineDash([4,4]);ctx.globalAlpha=.55;
       ctx.beginPath();ctx.moveTo(chart.chartArea.left,y);ctx.lineTo(chart.chartArea.right,y);ctx.stroke();
       ctx.setLineDash([]);ctx.globalAlpha=.8;ctx.fillStyle=color;ctx.font='9px Space Mono';
@@ -569,7 +521,68 @@ function refLinesPlugin(axisId,refs){
   }};
 }
 
-function setPeriod1(p,btn){S.p1=p;document.querySelectorAll('#tabs1 .period-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');fetchBTC(p).then(()=>{renderChart1();});}
+function renderChart1(){
+  const cv=document.getElementById('chart1'),ld=document.getElementById('loading1');
+  const bd=filtered(S.btcHistory,S.p1), fd=filtered(S.fgHistory,S.p1);
+  if(!bd.length){ld.style.display='flex';cv.style.display='none';return;}
+  ld.style.display='none'; cv.style.display='block';
+  const labels=xLabels(bd,S.p1);
+  const fgMap={}; fd.forEach(d=>{fgMap[d.t.toDateString()]=d.v;});
+  const fgA=bd.map(d=>fgMap[d.t.toDateString()]??null);
+  if(S.c1)S.c1.destroy();
+  const isLong=S.p1==='max'||S.p1>=730;
+  S.c1=new Chart(cv.getContext('2d'),{
+    type:'line',
+    data:{labels,datasets:[
+      {label:'Prix BTC',data:bd.map(d=>d.v),borderColor:'#f7931a',backgroundColor:'rgba(247,147,26,.05)',fill:true,tension:.3,pointRadius:0,borderWidth:2,yAxisID:'yBTC'},
+      {label:'F&G',data:fgA,borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,0)',tension:.4,pointRadius:0,borderWidth:1.5,yAxisID:'yFG',spanGaps:true}
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{backgroundColor:'#111118',borderColor:'#1e1e2e',borderWidth:1,titleColor:'#5a5a7a',bodyColor:'#e8e8f0',titleFont:{family:'Space Mono',size:9},bodyFont:{family:'Space Mono',size:11},
+        callbacks:{label:ctx=>ctx.dataset.yAxisID==='yBTC'?' BTC: '+fmtUSD(ctx.raw):' F&G: '+(ctx.raw!==null?Math.round(ctx.raw)+' — '+fgLabel(Math.round(ctx.raw)):'—')}}},
+      scales:{x:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'#5a5a7a',font:{family:'Space Mono',size:9},maxTicksLimit:isLong?10:7}},
+        yBTC:{type:'logarithmic',position:'left',grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#f7931a',font:{family:'Space Mono',size:9},callback:v=>[1000,5000,10000,50000,100000,500000].includes(v)?'$'+new Intl.NumberFormat('en').format(v):null}},
+        yFG:{type:'linear',position:'right',min:0,max:100,grid:{drawOnChartArea:false},ticks:{color:'#3b82f6',font:{family:'Space Mono',size:9}}}}
+    },
+    plugins:[refPlugin('yFG',[[25,'#22c55e','25'],[75,'#ef4444','75']])]
+  });
+}
+
+function renderChart2(){
+  const cv=document.getElementById('chart2'),ld=document.getElementById('loading2');
+  const bd=filtered(S.btcHistory,S.p2), md=filtered(S.mvrvHistory,S.p2);
+  if(!bd.length){ld.style.display='flex';cv.style.display='none';return;}
+  if(!md.length){ld.style.display='flex';ld.style.animation='none';ld.style.opacity='1';ld.textContent='MVRV Z-Score non disponible — saisir manuellement ou actualiser';return;}
+  ld.style.display='none'; cv.style.display='block';
+  const labels=xLabels(bd,S.p2);
+  const mvMap={}; md.forEach(d=>{mvMap[d.t.toDateString()]=d.v;});
+  const mvA=bd.map(d=>mvMap[d.t.toDateString()]??null);
+  if(S.c2)S.c2.destroy();
+  const isLong=S.p2==='max'||S.p2>=730;
+  // Dynamic Y range
+  const vals=mvA.filter(v=>v!==null);
+  const yMin=Math.min(-3,Math.floor(Math.min(...vals))-1);
+  const yMax=Math.max(10,Math.ceil(Math.max(...vals))+1);
+  S.c2=new Chart(cv.getContext('2d'),{
+    type:'line',
+    data:{labels,datasets:[
+      {label:'Prix BTC',data:bd.map(d=>d.v),borderColor:'#f7931a',backgroundColor:'rgba(247,147,26,.05)',fill:true,tension:.3,pointRadius:0,borderWidth:2,yAxisID:'yBTC'},
+      {label:'MVRV Z',data:mvA,borderColor:'#a78bfa',backgroundColor:'rgba(167,139,250,0)',tension:.3,pointRadius:0,borderWidth:1.8,yAxisID:'yMV',spanGaps:true}
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{backgroundColor:'#111118',borderColor:'#1e1e2e',borderWidth:1,titleColor:'#5a5a7a',bodyColor:'#e8e8f0',titleFont:{family:'Space Mono',size:9},bodyFont:{family:'Space Mono',size:11},
+        callbacks:{label:ctx=>ctx.dataset.yAxisID==='yBTC'?' BTC: '+fmtUSD(ctx.raw):' MVRV Z: '+(ctx.raw!==null?ctx.raw.toFixed(2):'—')}}},
+      scales:{x:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'#5a5a7a',font:{family:'Space Mono',size:9},maxTicksLimit:isLong?10:7}},
+        yBTC:{type:'logarithmic',position:'left',grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#f7931a',font:{family:'Space Mono',size:9},callback:v=>[1000,5000,10000,50000,100000,500000].includes(v)?'$'+new Intl.NumberFormat('en').format(v):null}},
+        yMV:{type:'linear',position:'right',min:yMin,max:yMax,grid:{drawOnChartArea:false},ticks:{color:'#a78bfa',font:{family:'Space Mono',size:9}}}}
+    },
+    plugins:[refPlugin('yMV',[[0,'#22c55e','0'],[7,'#ef4444','7']])]
+  });
+}
+
+function setPeriod1(p,btn){S.p1=p;document.querySelectorAll('#tabs1 .period-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');fetchBTC(p).then(()=>renderChart1());}
 function setPeriod2(p,btn){S.p2=p;document.querySelectorAll('#tabs2 .period-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderChart2();}
 
 // ─── EMAIL ────────────────────────────────────────────
@@ -587,14 +600,14 @@ function showToast(msg,err){const t=document.getElementById('toast');t.textConte
 
 // ─── INIT ─────────────────────────────────────────────
 async function reload(){
-  ['loading1','loading2'].forEach(id=>{document.getElementById(id).style.display='flex';document.getElementById(id).textContent='Chargement...';});
+  ['loading1','loading2'].forEach(id=>{const el=document.getElementById(id);el.style.display='flex';el.style.animation='blink 1.2s infinite';el.textContent=id==='loading2'?'Chargement MVRV Z-Score (Bitbo)...':'Chargement...';});
   ['chart1','chart2'].forEach(id=>{document.getElementById(id).style.display='none';});
-  await Promise.all([fetchFG(),fetchBTC(Math.max(S.p1,S.p2,'max'?999:0)),fetchMVRV()]);
-  updateUI();checkDaily();
+  await Promise.all([fetchFG(), fetchBTC('max'), fetchMVRV()]);
+  updateUI(); checkDaily();
 }
 renderSubs();
 reload();
-setInterval(reload,5*60*1000);
+setInterval(reload, 5*60*1000);
 </script>
 </body>
 </html>
